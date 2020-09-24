@@ -1,0 +1,20 @@
+.stat-value-container
+{
+	display: flex;
+	flex-direction: row;
+	width: auto;
+}
+
+.stat-value-label
+{
+	position: relative;
+	flex: 1;
+	width: auto;
+}
+
+.stat-value-field
+{
+	position: relative;
+	flex: 3;
+	width: auto;
+}

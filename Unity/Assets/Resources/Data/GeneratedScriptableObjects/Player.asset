@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f122f05ec5a46d740be63ea665bce750, type: 3}
+  m_Name: Player
+  m_EditorClassIdentifier: 
+  _healthStats:
+    _healthStat:
+      _startStat: 0
+      _usesMinMax: 0
+      _minStatValue: -2.1474836e+9
+      _maxStatValue: -1
+    _invulnerabilityDuration:
+      _startStat: 0
+      _usesMinMax: 0
+      _minStatValue: -2.1474836e+9
+      _maxStatValue: -1
+  _movementStats:
+    _speed:
+      _startStat: 0
+      _usesMinMax: 0
+      _minStatValue: -2.1474836e+9
+      _maxStatValue: -1
+    _maxSpeed:
+      _startStat: 0
+      _usesMinMax: 0
+      _minStatValue: -2.1474836e+9
+      _maxStatValue: -1

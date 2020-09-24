@@ -1,0 +1,75 @@
+
+Todo:
+    ☐ Menu system
+        ☐ Implementation
+            ☐ Button
+                ☐ Visuals
+                    ☐ Scale on hover
+                    ☐ Color change on hover, pressed
+                    ☐ Switching sprites
+            ☐ Options/Settings.
+                ☐ Popup
+    ☐ Spawn point system.
+        ☐ Look at DMSpilJam 2020
+    ☐ Look more into Sound manager
+    ☐ Refactoring stats system
+        ☐ Differentiate stats and other data(Eg. things, we have no need to upgrade or change during the game).
+    ☐ Guidelines for importing graphics
+    ☐ Guidelines for working together as programmers
+    ☐ Importing of previous gamejam scripts.
+    ☐ Vision system from DMSpilJam 2020
+    ☐ Trigger system
+        Take these into account DeathTrigger, WinTrigger and the pickup system
+    ☐ Pickup system
+        Take trigger system into account.
+    ☐ Projectile system
+        ☐ Look at previous gamejam(DMSpilJam 2020 as one)
+    ☐ Support for different movement types.
+        ☐ Platform movement from DMSpilJam 2020
+    ☐ Death requirements improvement?
+    ☐ Some general debug shortcuts?
+    ☐ Grid system
+        ☐ Look for a completed one
+            Look on the Asset store or the like, if there exists one with high enough quality
+        ☐ Create one, if a high quality doesn't exists.
+    ☐ Waiting for animation before death more integrated / better support
+        Currently have to write too much boilerplate code for it to work.
+
+Archive:
+  ✔ Add support for auto upload build for more than just my pc. @done(20-04-16 20:20) @project(Todo)
+  ✔ Requirements @done(20-04-14 22:36) @project(Todo)
+  ✔ Easy setup(And defaulting to template) @done(20-04-14 22:36) @project(Todo)
+  ✔ Menu screen @done(20-04-14 22:36) @project(Todo)
+  ✔ Screen manager @done(20-04-14 22:36) @project(Todo)
+    Manages the screens
+  ✔ Loading screens @done(20-04-14 22:36) @project(Todo)
+  ✔ Camera/3D @done(20-04-14 21:13) @project(Todo)
+  ✔ Position @done(20-04-14 21:13) @project(Todo)
+  ✔ Rotation @done(20-04-14 21:13) @project(Todo)
+  ✔ Clicked action @done(20-04-14 18:57) @project(Todo)
+  ✔ Transistion effects @done(20-04-13 21:02) @project(Todo)
+  ✔ Fade @done(20-04-13 21:02) @project(Todo)
+  ✔ InOut movement @done(20-04-13 21:02) @project(Todo)
+  ✔ Transition effect @done(20-04-13 21:02) @project(Todo)
+  ✔ Fade @done(20-04-13 21:02) @project(Todo)
+  ✔ InOut movement @done(20-04-13 21:02) @project(Todo)
+  ✔ Screen loader @done(20-04-13 21:02) @project(Todo)
+    Defines how to load the screen.
+  ✔ Scene @done(20-04-13 21:02) @project(Todo)
+  ✔ First loaded screen @done(20-04-13 21:02) @project(Todo)
+  ✔ Replace Unit config with new unit damage chart system @done(20-04-07 21:23) @project(Todo)
+  ✔ Editor window for the different settings in tdhe project. @done(20-04-05 21:23) @project(Todo)
+  ✔ Needs to support easy adding of settings. @done(20-04-05 21:23) @project(Todo)
+  ✔ Cleanup of the project. @done(20-03-09 13:39) @project(Todo)
+  ✔ Easy UI system @done(20-03-09 11:54) @project(Todo)
+  ✔ Debug system @done(20-02-06 15:56) @project(Todo)
+  ✔ Input system(Especially for Xbox controllers) @done(20-02-06 15:56) @project(Todo)
+  ✔ Handle animation for simple/easy animations. Eg. Just playing animation with different images. @done(20-02-06 15:56) @project(Todo)
+  ✔ Upgrades system @done(19-11-27 13:45) @project(Todo)
+  ✔ Animation system @done(19-11-27 13:46) @project(Todo)
+  ✔ Spawning system @done(19-11-27 13:46) @project(Todo)
+  ✔ Unit system @done(19-11-27 13:46) @project(Todo)
+  ✔ CollisionTransform @done(19-11-27 13:46) @project(Todo)
+  ✔ RootGo @done(19-11-27 13:46) @project(Todo)
+  ✔ Add life into the system @done(19-11-27 13:46) @project(Todo)
+  ✔ Damageable @done(19-11-27 13:46) @project(Todo)

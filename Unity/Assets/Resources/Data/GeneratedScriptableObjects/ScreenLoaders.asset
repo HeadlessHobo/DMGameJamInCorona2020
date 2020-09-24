@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f871210bf024a66974fbf893c1eaed0, type: 3}
+  m_Name: ScreenLoaders
+  m_EditorClassIdentifier: 
+  _sceneLoaders:
+  - _screenName: CreditsScene
+    _inTransition:
+      _pickedValue: FadeEffect
+    _outTransition:
+      _pickedValue: FadeEffect
+    _scene:
+      _pickedValue: Credits
+  - _screenName: GameOverScene
+    _inTransition:
+      _pickedValue: FadeEffect
+    _outTransition:
+      _pickedValue: FadeEffect
+    _scene:
+      _pickedValue: GameOver
+  - _screenName: MenuScene
+    _inTransition:
+      _pickedValue: FadeEffect
+    _outTransition:
+      _pickedValue: FadeEffect
+    _scene:
+      _pickedValue: Menu
+  - _screenName: TutorialScene
+    _inTransition:
+      _pickedValue: FadeEffect
+    _outTransition:
+      _pickedValue: FadeEffect
+    _scene:
+      _pickedValue: Tutorial
+  - _screenName: WinScene
+    _inTransition:
+      _pickedValue: FadeEffect
+    _outTransition:
+      _pickedValue: FadeEffect
+    _scene:
+      _pickedValue: WinScene
+  - _screenName: GameScene
+    _inTransition:
+      _pickedValue: None
+    _outTransition:
+      _pickedValue: None
+    _scene:
+      _pickedValue: Prototype
+  _3dScreenLoaders:
+  - _screenName: 3DCredits
+    _inTransition:
+      _pickedValue: None
+    _outTransition:
+      _pickedValue: None
+    _moveTime: 2
+    _cameraPosition: {x: 0, y: 0, z: -10}
+    _cameraRotation: {x: 0, y: 0, z: 0}
+    _cameraFieldOfView: 60
+    _scenePicker:
+      _pickedValue: 3D
+  - _screenName: 3DTutorial
+    _inTransition:
+      _pickedValue: None
+    _outTransition:
+      _pickedValue: None
+    _moveTime: 2
+    _cameraPosition: {x: -10.73, y: 1.22, z: -15.8}
+    _cameraRotation: {x: 0, y: -36.67, z: 0}
+    _cameraFieldOfView: 60
+    _scenePicker:
+      _pickedValue: 3D
+  - _screenName: 3DWinScene
+    _inTransition:
+      _pickedValue: None
+    _outTransition:
+      _pickedValue: None
+    _moveTime: 2
+    _cameraPosition: {x: 0, y: 0, z: -8.41}
+    _cameraRotation: {x: -101.71, y: 0, z: 0}
+    _cameraFieldOfView: 60
+    _scenePicker:
+      _pickedValue: 3D
+  - _screenName: 3DGameOver
+    _inTransition:
+      _pickedValue: None
+    _outTransition:
+      _pickedValue: None
+    _moveTime: 2
+    _cameraPosition: {x: 14.41, y: 2.23, z: -10}
+    _cameraRotation: {x: 0, y: 36.51, z: 0}
+    _cameraFieldOfView: 60
+    _scenePicker:
+      _pickedValue: 3D
+  - _screenName: 3DMenu
+    _inTransition:
+      _pickedValue: None
+    _outTransition:
+      _pickedValue: None
+    _moveTime: 2
+    _cameraPosition: {x: 0, y: 1.03, z: -11.02}
+    _cameraRotation: {x: 70.8, y: 0, z: 0}
+    _cameraFieldOfView: 60
+    _scenePicker:
+      _pickedValue: 3D

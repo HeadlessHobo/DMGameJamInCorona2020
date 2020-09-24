@@ -1,0 +1,45 @@
+Label {
+    font-size: 12px;
+}
+
+#Container
+{
+	display: flex;
+	flex-direction: row;
+	width: auto;
+}
+
+#RightPanel
+{
+	position: relative;
+	flex: 4;
+	width: auto;
+	border-width: 2px;
+	border-color: rgba(21, 132, 67,1);
+}
+
+#LeftPanel
+{
+	display: flex;
+	-unity-text-align: middle-center;
+	flex: 1;
+	width: auto;
+	border-width: 2px;
+	border-color: rgba(21, 132, 67,1);
+}
+
+.middle-left-text-align
+{
+	-unity-text-align: middle-left;
+}
+
+.unity-foldout__toggle
+{
+	margin-left: 0;
+}
+
+.selected
+{
+	background-color: #2f363d;
+}
+

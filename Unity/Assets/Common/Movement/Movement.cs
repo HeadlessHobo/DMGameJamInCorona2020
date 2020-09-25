@@ -1,3 +1,4 @@
+using System;
 using Common._2DAnimation.State;
 using Common.UnitSystem;
 using Common.UnitSystem.ExamplePlayer;
@@ -11,24 +12,50 @@ namespace Common.Movement
     public abstract class Movement : IFixedUpdate
     {
         private Vector2 _currentMoveDirection;
-        private Rigidbody2D _rigidbody2D;
         private MovementStats _movementStats;
+        private UnitMovementSetup _unitMovementSetup;
+        private MovementType _movementType;
 
         public Vector2 CurrentMoveDirection => _currentMoveDirection;
 
-        protected Movement(UnitMovementSetup unitMovementSetup, MovementStats movementStats)
+        protected Movement(MovementStats movementStats, UnitMovementSetup unitMovementSetup, MovementType movementType)
         {
-            _rigidbody2D = unitMovementSetup.Rigidbody2D;
+            _unitMovementSetup = unitMovementSetup;
             _movementStats = movementStats;
+            _movementType = movementType;
         }
         
         public void FixedUpdate()
         {
             SetMoveDirection();
+            Move();
+        }
 
+        private void Move()
+        {
+            switch (_movementType)
+            {
+                case MovementType.Rigidbody:
+                    MoveViaRigidbody();
+                    break;
+                case MovementType.Transform:
+                    MoveViaTransform();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void MoveViaTransform()
+        {
+            _unitMovementSetup.MovementTransform.Translate(_currentMoveDirection * (_movementStats.Speed * Time.deltaTime));
+        }
+
+        private void MoveViaRigidbody()
+        {
             if(Mathf.Abs(_currentMoveDirection.x) > 0 || Mathf.Abs(_currentMoveDirection.y) > 0)
             {
-                _rigidbody2D.AddForce(_currentMoveDirection * _movementStats.Speed, ForceMode2D.Force);
+                _unitMovementSetup.Rigidbody2D.AddForce(_currentMoveDirection * _movementStats.Speed, ForceMode2D.Force);
             }
         }
 

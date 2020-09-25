@@ -1,10 +1,12 @@
 kind: pipeline
-type: kubernetes
-name: windows
+type: docker
+name: Unity builds
 
 environment:
-  WINDOWS_BUILD_DIRECTORY: CIBuilds/Windows
-  WEBGL_BUILD_DIRECTORY: Builds/WebGL
+    BUILD_TARGET: StandaloneWindows64
+    BUILD_NAME: Windows
+    NAS_BUILD_DIRECTORY: Builds/nas
+    ITCH_BUILD_DIRECTORY: Builds/itch
 
 steps:
 - name: create unity activation file
@@ -14,7 +16,6 @@ steps:
     UNITY_PASSWORD: 20572057
     UNITY_ACTIVATION_FILE: ./unity3d.alf
   commands:
-  - echo $PLUGIN_DEST_DIR
   - chmod +x ./ci/get_activation_file.sh
   - ./ci/get_activation_file.sh
 
@@ -28,36 +29,38 @@ steps:
   commands:
   - unity3d-activator
 
+- name: upload debug images
+  image: cschlosser/drone-ftps
+  environment:
+    PLUGIN_HOSTNAME: 192.168.1.184:21
+    FTP_USERNAME:
+      from_secret: ftp_username
+    FTP_PASSWORD:
+      from_secret: ftp_password
+    PLUGIN_DEST_DIR: /sync/data/ci/debug_images
+    PLUGIN_SRC_DIR: /debug_images/
+    PLUGIN_SECURE: true
+    PLUGIN_VERIFY: false
+  when:
+    status:
+      - failure
+
 - name: building windows build
   image: gableroux/unity3d:2019.3.0f6-windows
-  environment:
-    BUILD_TARGET: StandaloneWindows64
-    BUILD_NAME: Windows
   commands:
   - chmod +x ./ci/before_script.sh
   - ./ci/before_script.sh
   - chmod +x ./ci/build.sh
   - ./ci/build.sh
+  - echo $Test
 
 - name: after windows build
   image: eamonwoortman/alpine-curl-zip
   environment:
-    BUILD_PATH: Builds/StandaloneWindows64
-    BUILD_NAME: Windows
+    BUILD_PATH: Builds/StandaloneWindows64/
   commands:
-  - chmod +x ./ci/after_windows_build.sh
-  - ./ci/after_windows_build.sh
-
-- name: upload windows build to itch
-  image: dosowisko/butler
-  environment:
-    BUTLER_API_KEY:
-      from_secret: butler_api_key
-    BUILD_NAME: Windows
-  commands:
-  - export ITCH_BUILD_DIRECTORY=$WINDOWS_BUILD_DIRECTORY
-  - chmod +x ./ci/upload_itch.sh
-  - ./ci/upload_itch.sh
+  - chmod +x ./ci/after_build.sh
+  - ./ci/after_build.sh
 
 - name: upload windows build to nas
   image: drillster/drone-rsync
@@ -66,63 +69,21 @@ steps:
       from_secret: rsync_key
     RSYNC_USER:
       from_secret: rsync_user
-    BUILD_NAME: Windows
   settings:
-    hosts: 192.168.1.166
+    hosts:
+      - 192.168.1.166
+    source: Builds/nas/
+    target: /mnt/storage/public/game_builds/
     recursive: true
-  prescript:
-  - mkdir -p $PLUGIN_TARGET
-  commands:
-  - export ZIP_FILE_NAME="$DRONE_BUILD_NUMBER-$BUILD_NAME-$DRONE_COMMIT_AUTHOR_NAME-$DRONE_COMMIT_MESSAGE"
-    # Remove invalid characters in NAS_UPLOAD_PATH_NAME
-  - ZIP_FILE_NAME=`echo $ZIP_FILE_NAME | sed 's/[^A-Za-z0-9._[:space:]-]//g'`
-  - mv "$(pwd)/$WINDOWS_BUILD_DIRECTORY/$BUILD_NAME.zip" "$(pwd)/$WINDOWS_BUILD_DIRECTORY/$ZIP_FILE_NAME.zip"
-  - export PLUGIN_TARGET="/mnt/storage/public/game_builds/$DRONE_REPO_NAME/Windows/"
-  - export PLUGIN_SOURCE="$(pwd)/$WINDOWS_BUILD_DIRECTORY/"
-  - /usr/local/upload.sh
 
-- name: building webgl build
-  image: gableroux/unity3d:2019.3.0f6-webgl
-  environment:
-    BUILD_TARGET: WebGL
-    BUILD_NAME: WebGL
-  commands:
-  - chmod +x ./ci/before_script.sh
-  - ./ci/before_script.sh
-  - chmod +x ./ci/build.sh
-  - ./ci/build.sh
-
-- name: upload webgl build to itch
+- name: upload build to itch
   image: dosowisko/butler
   environment:
     BUTLER_API_KEY:
       from_secret: butler_api_key
-    BUILD_NAME: WebGL
   commands:
-  - export ITCH_BUILD_DIRECTORY=$(pwd)/$WEBGL_BUILD_DIRECTORY
   - chmod +x ./ci/upload_itch.sh
   - ./ci/upload_itch.sh
-
-- name: upload webgl build to nas
-  image: drillster/drone-rsync
-  environment:
-    RSYNC_KEY:
-      from_secret: rsync_key
-    RSYNC_USER:
-      from_secret: rsync_user
-    BUILD_NAME: Windows
-  settings:
-    hosts: 192.168.1.166
-    recursive: true
-  prescript:
-  - mkdir -p $PLUGIN_TARGET
-  commands:
-  - export NAS_UPLOAD_PATH_NAME='${DRONE_BUILD_NUMBER}-${BUILD_NAME}-${DRONE_COMMIT_AUTHOR_NAME}-${DRONE_COMMIT_MESSAGE}'
-    # Remove invalid characters in NAS_UPLOAD_PATH_NAME
-  - NAS_UPLOAD_PATH_NAME=`echo ${NAS_UPLOAD_PATH_NAME} | sed 's/[^A-Za-z0-9._-]//g'`
-  - export PLUGIN_TARGET="/mnt/storage/public/game_builds/$DRONE_REPO_NAME/WebGl/$NAS_UPLOAD_PATH_NAME/"
-  - export PLUGIN_SOURCE="$(pwd)/$WEBGL_BUILD_DIRECTORY/"
-  - /usr/local/upload.sh
 
 - name: discord notification
   image: appleboy/drone-discord
@@ -135,7 +96,3 @@ steps:
         {{else}}
           build {{build.number}} failed. Fix me please.
         {{/success}}
-  when:
-    status:
-    - failure
-    - success

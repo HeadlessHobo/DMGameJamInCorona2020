@@ -16,24 +16,24 @@ namespace Common.UnitSystem
         private bool _usesMinMax;
         
         [SerializeField]
-        private float _minStatValue = int.MinValue;
+        private float minAllowedStatValue = int.MinValue;
         
         [SerializeField]
-        private float _maxStatValue = -1;
+        private float maxAllowedStatValue = -1;
 
-        public float MinStatValue
+        public float MinAllowedStatValue
         {
-            get => _minStatValue;
-            set => _minStatValue = value;
+            get => minAllowedStatValue;
+            set => minAllowedStatValue = value;
         }
         
-        public float MaxStatValue
+        public float MaxAllowedStatValue
         {
-            get => _maxStatValue;
-            set => _maxStatValue = value;
+            get => maxAllowedStatValue;
+            set => maxAllowedStatValue = value;
         }
         
-        public float CurrentProcent => Value / _maxStatValue;
+        public float CurrentProcent => Value / maxAllowedStatValue;
 
         public float Value
         {
@@ -52,7 +52,7 @@ namespace Common.UnitSystem
 
         public void DecreaseStat(float statDecrease)
         {
-            _statChange -= ReturnStatChangeValueWithinLimits(-statDecrease);
+            _statChange += ReturnStatChangeValueWithinLimits(-statDecrease);
         }
         
         public void IncreaseTempStat(float statIncrease)
@@ -62,23 +62,35 @@ namespace Common.UnitSystem
 
         public void DecreaseTempStat(float statDecrease)
         {
-            _tempStatChange -= ReturnStatChangeValueWithinLimits(-statDecrease);
+            _tempStatChange += ReturnStatChangeValueWithinLimits(-statDecrease);
         }
 
-        private float ReturnStatChangeValueWithinLimits(float stateChangeValue)
+        private float ReturnStatChangeValueWithinLimits(float statChangeValue)
         {
-            float newValue = Value + stateChangeValue;
-               
-               if (MinStatValue > int.MinValue && newValue < MinStatValue)
-               {
-                   return MinStatValue - Value;
-               }
-               else if (MaxStatValue > -1 && newValue > MaxStatValue)
-               {
-                   return MaxStatValue - Value;
-               }
-   
-               return stateChangeValue;
+            float newValue = Value + statChangeValue;
+            
+            if (ShouldUseMinAllowedStatValue() && newValue < MinAllowedStatValue)
+            {
+                float statChangeFromCurrentValueToMinAllowedValue = MinAllowedStatValue - Value;
+                return statChangeFromCurrentValueToMinAllowedValue;
+            }
+            else if (ShouldUseMaxAllowedStatValue() && newValue > MaxAllowedStatValue)
+            {
+                float statChangeFromCurrentValueToMaxAllowedValue = MaxAllowedStatValue - Value;
+                return statChangeFromCurrentValueToMaxAllowedValue;
+            }
+
+            return statChangeValue;
+        }
+
+        private bool ShouldUseMinAllowedStatValue()
+        {
+            return MinAllowedStatValue > int.MinValue;
+        }
+        
+        private bool ShouldUseMaxAllowedStatValue()
+        {
+            return MaxAllowedStatValue > -1;
         }
 
         public void ResetTempStats()

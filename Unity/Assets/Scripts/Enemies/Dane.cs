@@ -4,6 +4,7 @@ using Common.Movement;
 using Common.UnitSystem;
 using Common.UnitSystem.ExamplePlayer.Stats;
 using Common.UnitSystem.Stats;
+using Common.Util;
 using Plugins.Timer.Source;
 using UnityEngine;
 using Yurowm.DebugTools;
@@ -23,9 +24,15 @@ namespace Enemies
 
         [SerializeField] 
         private UnitMovementSetup _unitMovementSetup;
+
+        [SerializeField] 
+        private GameObject _scaredTriggerGo;
         
         private EnemiesMovement _enemiesMovement;
         private DaneState _currentState;
+        private bool _hasInitialized;
+        private Timer _scaredTimer;
+        private Timer _colorTimer;
 
         public override UnitType UnitType => UnitType.Enemy;
         protected override IUnitStatsManager StatsManager => _daneStatsManager;
@@ -40,30 +47,43 @@ namespace Enemies
                 _daneStatsManager = Instantiate(_daneStatsManager);
                 SlowManager = new UnitSlowManager(GetStatsManager<DaneStatsManager>().MovementStats);
                 Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _unitSetup, _daneStatsManager.HealthStats);
-                _enemiesMovement = new EnemiesMovement(_daneStatsManager.GetStats<MovementStats>(), _unitMovementSetup, MovementType.Transform);
+                _enemiesMovement = new EnemiesMovement(_daneStatsManager.GetStats<MovementStats>(), _unitMovementSetup, MovementType.Rigidbody);
+                SetupScaredTrigger();
+                SetupScaredTriggerNotifier();
                 AddLifeCycleObjects(Armor, _enemiesMovement);
+                _hasInitialized = true;
             }
+        }
+
+        private void SetupScaredTrigger()
+        {
+            CircleCollider2D circleCollider2D = _scaredTriggerGo.GetComponentInChildren<CircleCollider2D>();
+            circleCollider2D.radius = _daneStatsManager.ScaredTriggerRadius.Value;
+        }
+        
+        private void SetupScaredTriggerNotifier()
+        {
+            TriggerNotifier triggerNotifier = _scaredTriggerGo.AddComponent<TriggerNotifier>();
+            triggerNotifier.Init(new List<UnitType>() {UnitType.Explosion});
+            triggerNotifier.UnitEntered += OnExplosionEntered;
+        }
+
+        private void OnExplosionEntered(UnitType unitType, IUnit unit)
+        {
+            SetNewState(DaneState.Scared);
         }
 
         public void SetNewState(DaneState newState)
         {
-            DaneState oldState = _currentState;
-            _currentState = newState;
-            if (oldState != newState)
+            if (_hasInitialized)
             {
-                SwitchToNewState(newState, oldState);
+                DaneState oldState = _currentState;
+                _currentState = newState;
+                if (oldState != newState)
+                {
+                    SwitchToNewState(newState, oldState);
+                }
             }
-        }
-
-        protected override void EditorUpdate()
-        {
-            base.EditorUpdate();
-        }
-
-        protected override void Update()
-        {
-            base.Update();
-            DebugPanel.Log("State", "Dane", _currentState);
         }
 
         private void SwitchToNewState(DaneState newState, DaneState oldState)
@@ -85,6 +105,7 @@ namespace Enemies
                 case DaneState.Scared:
                     _enemiesMovement.SetNewState(EnemyMovementState.Scared);
                     _unitGraphicSetup.SpriteRenderer.color = Color.black;
+                    _scaredTimer = Timer.Register(_daneStatsManager.ScaredRunTime.Value, () => SetNewState(DaneState.Standing));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -106,8 +127,21 @@ namespace Enemies
 
             if (_currentState == DaneState.Cheer)
             {
-                Timer.Register(interval, () => StartColorloop(spriteRenderer, colorIndex + 1, interval, colors));
+                _colorTimer = Timer.Register(interval, () => StartColorloop(spriteRenderer, colorIndex + 1, interval, colors));
             }
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            Timer.Cancel(_scaredTimer);
+            Timer.Cancel(_colorTimer);
+        }
+
+        protected override void EditorUpdate()
+        {
+            base.EditorUpdate();
+            SetupScaredTrigger();
         }
     }
 }

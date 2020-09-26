@@ -26,7 +26,8 @@ namespace Common.UnitSystem.Stats
 
         public UnitHealthStats(Stat healthStat, Stat invulnerabilityDuration)
         {
-            
+            _healthStat = healthStat;
+            _invulnerabilityDuration = invulnerabilityDuration;
         }
 
         public void IncreaseHealth(int health)

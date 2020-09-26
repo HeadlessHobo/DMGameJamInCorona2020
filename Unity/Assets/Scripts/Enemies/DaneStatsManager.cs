@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Common.UnitSystem;
 using Common.UnitSystem.ExamplePlayer.Stats;
 using Common.UnitSystem.Stats;
 using UnityEngine;
@@ -13,9 +14,19 @@ namespace Enemies
         [SerializeField]
         private MovementStats _movementStats;
 
+        [SerializeField] 
+        private Stat _scaredTriggerRadius;
+
+        [SerializeField] 
+        private Stat _scaredRunTime;
+
         public UnitHealthStats HealthStats => _healthStats;
 
         public MovementStats MovementStats => _movementStats;
+
+        public Stat ScaredTriggerRadius => _scaredTriggerRadius;
+
+        public Stat ScaredRunTime => _scaredRunTime;
 
         protected override List<object> StatsEntries => new List<object>() { _healthStats, _movementStats };
     }

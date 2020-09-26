@@ -38,7 +38,7 @@ public class PlayerManager : MovingUnit
     protected override IArmor Armor { get; set; }
     protected override UnitSlowManager SlowManager { get; set; }
 
-    protected  void Start()
+    protected void Start()
     {
         if (Application.isPlaying)
         {

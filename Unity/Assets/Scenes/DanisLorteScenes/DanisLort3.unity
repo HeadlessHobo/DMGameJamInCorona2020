@@ -210,7 +210,7 @@ MonoBehaviour:
   - {fileID: -4743439896936315770, guid: 398e20388b7823d459970cd0eb8bfa34, type: 3}
   QueenSprite: {fileID: 6581116930487997688, guid: 398e20388b7823d459970cd0eb8bfa34,
     type: 3}
-  This: {fileID: 286679331}
+  This: {fileID: 1237025166}
   isQueen: 0
   HumanAnimator: {fileID: 1048920085}
 --- !u!4 &172286481
@@ -296,7 +296,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714222796}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -627,7 +627,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965992110}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

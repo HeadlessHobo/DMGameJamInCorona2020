@@ -9,28 +9,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c44931c169fa49789836c47398401713, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 3c34c15a7cff4e3aa86fe607cc8d87e1, type: 3}
+  m_Name: Explosion
   m_EditorClassIdentifier: 
-  _healthStats:
-    _healthStat:
-      _startStat: 1
-      _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
-    _invulnerabilityDuration:
-      _startStat: 0
-      _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
-  _movementStats:
-    _speed:
-      _startStat: 25
-      _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
-    _maxSpeed:
+  _explosionData:
+    ExplosionForce:
       _startStat: 50
+      _usesMinMax: 0
+      minAllowedStatValue: 0
+      maxAllowedStatValue: 0
+    ExplosionRadius:
+      _startStat: 2
+      _usesMinMax: 0
+      minAllowedStatValue: 0
+      maxAllowedStatValue: 0
+    ExplosionTimer:
+      _startStat: 3
+      _usesMinMax: 0
+      minAllowedStatValue: 0
+      maxAllowedStatValue: 0
+    ExplosionLiveTime:
+      _startStat: 2
+      _usesMinMax: 0
+      minAllowedStatValue: 0
+      maxAllowedStatValue: 0
+    ExplosionExpandTime:
+      _startStat: 1
       _usesMinMax: 0
       minAllowedStatValue: 0
       maxAllowedStatValue: 0

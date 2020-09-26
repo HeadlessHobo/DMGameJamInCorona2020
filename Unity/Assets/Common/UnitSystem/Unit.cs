@@ -24,7 +24,7 @@ namespace Common.UnitSystem
             return ConvertObjectAndVerifyType<T>(Armor);
         }
         
-        public T GetSetup<T>() where T : UnitSetup
+        public T GetSetup<T>()
         {
             foreach (var setup in _setups)
             {
@@ -36,7 +36,7 @@ namespace Common.UnitSystem
 
             Debug.LogError(
                 $"Tried to get setup with type: { typeof(T).Name } but was unable to find it. ");
-            return null;
+            return default(T);
         }
 
         public T GetStatsManager<T>() where T : IUnitStatsManager

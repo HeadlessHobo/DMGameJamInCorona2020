@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Common.SpawnHanding
 {
-    [Serializable][CreateAssetMenu(fileName = "SpawnTypeToPrefab", menuName = "Mappings/Spawn type to prefab mappings", order = 50)]
     public class SpawnTypeToPrefabMapping : ScriptableObject
     {
         [SerializeField]

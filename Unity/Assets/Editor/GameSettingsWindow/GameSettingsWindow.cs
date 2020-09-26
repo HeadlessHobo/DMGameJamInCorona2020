@@ -53,6 +53,7 @@ namespace Editor.GameSettingsWindow
                 new StatManagersSettingEntry(this),
                 new ScreenLoadersSettingEntry(this),
                 new TransitionsSettingEntry(this),
+                new MappingsSettingsEntry(this),
                 new GameSettingsEntry(this)
             };
         }

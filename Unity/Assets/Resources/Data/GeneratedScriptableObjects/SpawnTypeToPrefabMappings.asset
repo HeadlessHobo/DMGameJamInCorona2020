@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0f1f6f8868d474d88332304427a7a4b, type: 3}
-  m_Name: GameSettings
+  m_Script: {fileID: 11500000, guid: d987e53568bb4c6db54ef7100d29d132, type: 3}
+  m_Name: SpawnTypeToPrefabMappings
   m_EditorClassIdentifier: 
-  _firstLoadedScreen:
-    _pickedValue: GameScene
+  _mappingList:
+  - SpawnType: 0
+    Prefab: {fileID: 2656507285800226074, guid: e7c0f51ef4c6df40296294d1866fb426,
+      type: 3}

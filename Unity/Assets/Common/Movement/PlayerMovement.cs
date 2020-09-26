@@ -22,8 +22,6 @@ namespace Common.Movement
         protected override Vector2 GetMoveDirection()
         {
             return _moveDirection;
-        }
-
-      
+        }      
     }
 }

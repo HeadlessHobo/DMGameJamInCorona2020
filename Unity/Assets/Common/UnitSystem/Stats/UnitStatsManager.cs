@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Common.UnitSystem.Stats
 {
-    public abstract class UnitStatsManager<THealthStats> : ScriptableObject, IUnitStatsManager where THealthStats : UnitHealthStats
+    public abstract class UnitStatsManager: ScriptableObject, IUnitStatsManager
     {
         protected abstract List<object> StatsEntries { get; }
         

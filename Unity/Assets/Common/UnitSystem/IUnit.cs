@@ -9,5 +9,7 @@ namespace Common.UnitSystem
         T GetArmor<T>() where T : IArmor;
         
         T GetStatsManager<T>() where T : IUnitStatsManager;
+
+        T GetSetup<T>();
     }
 }

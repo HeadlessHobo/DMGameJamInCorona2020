@@ -8,6 +8,7 @@ namespace Editor.GameSettingsWindow.SettingEntries
     public class StatManagersSettingEntry : SettingEntryBase
     {
         private const string PLAYER_STATS_MANAGER_LABEL_NAME = "Player";
+        private const string EXPLOSION_STATS_MANAGER_LABEL_NAME = "Explosion";
         
         private static VisualElement _rightPanel;
         private static Dictionary<string, VisualElement> _labelToContentUi;
@@ -15,7 +16,8 @@ namespace Editor.GameSettingsWindow.SettingEntries
         public StatManagersSettingEntry(GameSettingsWindow gameSettingsWindow) : base(gameSettingsWindow)
         {
             _labelToContentUi = new Dictionary<string, VisualElement>();
-            _labelToContentUi.Add(PLAYER_STATS_MANAGER_LABEL_NAME, ScriptableObjectUiUtils.CreateUiForScriptableObject<ExamplePlayerStatsManager>("Player"));
+            _labelToContentUi.Add(PLAYER_STATS_MANAGER_LABEL_NAME, ScriptableObjectUiUtils.CreateUiForScriptableObject<PlayerStatsManager>("Player"));
+            _labelToContentUi.Add(EXPLOSION_STATS_MANAGER_LABEL_NAME, ScriptableObjectUiUtils.CreateUiForScriptableObject<TNTStatsManager>("Explosion"));
         }
 
         private void OnLabelClicked(VisualElement element)
@@ -28,7 +30,7 @@ namespace Editor.GameSettingsWindow.SettingEntries
 
         public override VisualElement CreateLeftPanelEntryUI()
         {
-            return UICreator.CreateFoldoutWithMultipleLabels("Stats", OnLabelClicked, PLAYER_STATS_MANAGER_LABEL_NAME);
+            return UICreator.CreateFoldoutWithMultipleLabels("Stats", OnLabelClicked, PLAYER_STATS_MANAGER_LABEL_NAME, EXPLOSION_STATS_MANAGER_LABEL_NAME);
         }
     }
 }

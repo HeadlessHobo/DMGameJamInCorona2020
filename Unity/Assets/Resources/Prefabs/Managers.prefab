@@ -30,6 +30,7 @@ Transform:
   - {fileID: 3086912886743864089}
   - {fileID: 4138859545807634258}
   - {fileID: 6729763856998070882}
+  - {fileID: 3588791986841551180}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,6 +80,52 @@ MonoBehaviour:
   __messageText: 
   _faderPrefab: {fileID: 4676406526180659592, guid: ccd290e779927bb41814a812a85d3e48,
     type: 3}
+--- !u!1 &6656502657812767756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3588791986841551180}
+  - component: {fileID: 8906695337600592780}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3588791986841551180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656502657812767756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2353326850966677385}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8906695337600592780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6656502657812767756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611b404161e44d37a73165a7fe06ba52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  __messageText: 
+  spawnTypeToPrefabMapping: {fileID: 11400000, guid: d35726d902370524f972694432b014b0,
+    type: 2}
 --- !u!1 &7478375448035152761
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,5 +217,3 @@ MonoBehaviour:
   __messageText: 
   _screenLoadersData: {fileID: 11400000, guid: 25b2e156ae0feb14e80ef4a9c48ab509, type: 2}
   _transitionEffectManager: {fileID: 7213895499191754882}
-  _firstLoadedScreen:
-    _pickedValue: 3DMenu

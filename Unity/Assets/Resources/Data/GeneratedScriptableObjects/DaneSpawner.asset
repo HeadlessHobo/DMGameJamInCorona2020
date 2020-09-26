@@ -9,38 +9,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a8ff121bf3452891016d6b9b94e2a7, type: 3}
-  m_Name: Dane
+  m_Script: {fileID: 11500000, guid: 67b294668c8240e9931062989f3a446b, type: 3}
+  m_Name: DaneSpawner
   m_EditorClassIdentifier: 
-  _healthStats:
-    _healthStat:
-      _startStat: 2
+  _daneSpawnerData:
+    MaxDanes:
+      _startStat: 40
       _usesMinMax: 0
       minAllowedStatValue: 0
       maxAllowedStatValue: 0
-    _invulnerabilityDuration:
-      _startStat: 0
+    MinDanesForSpawningNewDanes:
+      _startStat: 20
       _usesMinMax: 0
       minAllowedStatValue: 0
       maxAllowedStatValue: 0
-  _movementStats:
-    _speed:
-      _startStat: 15
+    MinDanesPerSpawn:
+      _startStat: 3
       _usesMinMax: 0
       minAllowedStatValue: 0
       maxAllowedStatValue: 0
-    _maxSpeed:
-      _startStat: 30
+    MaxDanesPerSpawn:
+      _startStat: 6
       _usesMinMax: 0
       minAllowedStatValue: 0
       maxAllowedStatValue: 0
-  _scaredTriggerRadius:
-    _startStat: 5
-    _usesMinMax: 0
-    minAllowedStatValue: 0
-    maxAllowedStatValue: 0
-  _scaredRunTime:
-    _startStat: 2
-    _usesMinMax: 0
-    minAllowedStatValue: 0
-    maxAllowedStatValue: 0
+    SpawnInterval:
+      _startStat: 7
+      _usesMinMax: 0
+      minAllowedStatValue: 0
+      maxAllowedStatValue: 0
+    DaneSpawnSize:
+      _startStat: 1
+      _usesMinMax: 0
+      minAllowedStatValue: 0
+      maxAllowedStatValue: 0

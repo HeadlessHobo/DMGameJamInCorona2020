@@ -16,20 +16,25 @@ MonoBehaviour:
     ExplosionForce:
       _startStat: 1000
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
     ExplosionRadius:
       _startStat: 2.89
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
     ExplosionLiveTime:
-      _startStat: 1
+      _startStat: 0.5
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
+    ExplosionDamageAndPushTime:
+      _startStat: 0.4
+      _usesMinMax: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
     ExplosionAnimationWaitTime:
       _startStat: 0.3
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0

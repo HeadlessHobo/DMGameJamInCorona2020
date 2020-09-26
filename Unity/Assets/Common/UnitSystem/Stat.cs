@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Common.UnitSystem
 {
@@ -16,24 +17,24 @@ namespace Common.UnitSystem
         private bool _usesMinMax;
         
         [SerializeField]
-        private float minAllowedStatValue = int.MinValue;
+        private float _minAllowedStatValue = int.MinValue;
         
         [SerializeField]
-        private float maxAllowedStatValue = -1;
+        private float _maxAllowedStatValue = -1;
 
         public float MinAllowedStatValue
         {
-            get => minAllowedStatValue;
-            set => minAllowedStatValue = value;
+            get => _minAllowedStatValue;
+            set => _minAllowedStatValue = value;
         }
         
         public float MaxAllowedStatValue
         {
-            get => maxAllowedStatValue;
-            set => maxAllowedStatValue = value;
+            get => _maxAllowedStatValue;
+            set => _maxAllowedStatValue = value;
         }
         
-        public float CurrentProcent => Value / maxAllowedStatValue;
+        public float CurrentProcent => Value / _maxAllowedStatValue;
 
         public float Value
         {

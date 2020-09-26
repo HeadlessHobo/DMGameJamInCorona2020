@@ -23,6 +23,9 @@ TextureImporter:
   - first:
       213: -5715070574998929817
     second: Shadow
+  - first:
+      213: 6581116930487997688
+    second: Danes_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -250,6 +253,27 @@ TextureImporter:
       bones: []
       spriteID: 76eb6ee779dffa0b0800000000000000
       internalID: -5715070574998929817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_7
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 672
+        width: 155
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f4db03eaf2d45b50800000000000000
+      internalID: 6581116930487997688
       vertices: []
       indices: 
       edges: []

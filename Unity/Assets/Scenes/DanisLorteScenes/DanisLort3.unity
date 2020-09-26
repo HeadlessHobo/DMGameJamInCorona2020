@@ -202,6 +202,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbc45dc3e0c85af4fa1c1c0a0d5b9bb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rndNum: 0
+  HumanSprites:
+  - {fileID: -7615720226360196843, guid: 398e20388b7823d459970cd0eb8bfa34, type: 3}
+  - {fileID: 4933013447942517182, guid: 398e20388b7823d459970cd0eb8bfa34, type: 3}
+  - {fileID: -8911043263492261292, guid: 398e20388b7823d459970cd0eb8bfa34, type: 3}
+  - {fileID: -4743439896936315770, guid: 398e20388b7823d459970cd0eb8bfa34, type: 3}
+  QueenSprite: {fileID: 6581116930487997688, guid: 398e20388b7823d459970cd0eb8bfa34,
+    type: 3}
+  This: {fileID: 286679331}
+  isQueen: 0
   HumanAnimator: {fileID: 1048920085}
 --- !u!4 &172286481
 Transform:

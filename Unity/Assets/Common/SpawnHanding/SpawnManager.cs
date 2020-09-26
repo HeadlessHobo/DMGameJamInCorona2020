@@ -44,6 +44,12 @@ public class SpawnManager : Singleton<SpawnManager>
         return spawnedGo;
     }
 
+    public GameObject Spawn(SpawnType spawnType, Vector2 spawnPosition)
+    {
+        GameObject spawnPrefab = GetSpawnPrefabForSpawnType(spawnType);
+        return Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
+    }
+
     public GameObject GetSpawnPrefabForSpawnType(SpawnType spawnType)
     {
         return spawnTypeToPrefabMapping.GetSpawnPrefabForSpawnType(spawnType);

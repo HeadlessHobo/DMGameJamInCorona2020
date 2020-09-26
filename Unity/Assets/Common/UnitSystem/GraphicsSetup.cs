@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace Common.UnitSystem
 {
+    [Serializable]
     public class UnitGraphicSetup
     {
         [SerializeField]

@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Common.UnitSystem.ExamplePlayer.Stats
 {
     [Serializable]
-    public class ExamplePlayerStatsManager : UnitStatsManager<UnitHealthStats>
+    public class ExamplePlayerStatsManager : UnitStatsManager
     {
         [SerializeField]
         private UnitHealthStats _healthStats;

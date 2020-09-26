@@ -54,14 +54,7 @@ MonoBehaviour:
     _outTransition:
       _pickedValue: None
     _scene:
-      _pickedValue: Prototype
-  - _screenName: DaniScene
-    _inTransition:
-      _pickedValue: None
-    _outTransition:
-      _pickedValue: None
-    _scene:
-      _pickedValue: DanisTestLort
+      _pickedValue: PhilipsPrototype
   _3dScreenLoaders:
   - _screenName: 3DCredits
     _inTransition:

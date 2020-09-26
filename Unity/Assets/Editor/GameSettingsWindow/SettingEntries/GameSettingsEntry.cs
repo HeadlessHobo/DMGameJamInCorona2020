@@ -23,7 +23,7 @@ namespace Editor.GameSettingsWindow.SettingEntries
 
         private VisualElement CreateContentUi()
         {
-            return ScriptableObjectUiUtils.CreateUiForScriptableObject<GameSettings>(GameManager.GAME_SETTINGS_SCRIPTABLE__OBJECT_NAME);
+            return ScriptableObjectUiUtils.CreateUiForScriptableObject<GameSettings>(GameManager.GAME_SETTINGS_SCRIPTABLE_OBJECT_NAME);
         }
     }
 }

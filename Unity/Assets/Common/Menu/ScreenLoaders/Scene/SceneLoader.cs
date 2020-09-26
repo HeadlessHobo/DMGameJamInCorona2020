@@ -1,3 +1,4 @@
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Common.Menu.ScreenLoaders.Scene
@@ -10,7 +11,10 @@ namespace Common.Menu.ScreenLoaders.Scene
 
         public override void LoadScreen()
         {
-            SceneManager.LoadScene(_screenLoaderData.SceneToLoad);
+            if (SceneManager.GetActiveScene().name != _screenLoaderData.SceneToLoad)
+            {
+                SceneManager.LoadScene(_screenLoaderData.SceneToLoad);
+            }
         }
     }
 }

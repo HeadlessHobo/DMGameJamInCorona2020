@@ -13,8 +13,9 @@ namespace Common.Movement
     {
         private Vector2 _currentMoveDirection;
         private MovementStats _movementStats;
-        private UnitMovementSetup _unitMovementSetup;
         private MovementType _movementType;
+        
+        protected UnitMovementSetup _unitMovementSetup;
 
         public Vector2 CurrentMoveDirection => _currentMoveDirection;
 

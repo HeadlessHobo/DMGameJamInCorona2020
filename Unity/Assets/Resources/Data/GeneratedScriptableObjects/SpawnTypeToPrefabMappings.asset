@@ -16,3 +16,10 @@ MonoBehaviour:
   - SpawnType: 0
     Prefab: {fileID: 2656507285800226074, guid: e7c0f51ef4c6df40296294d1866fb426,
       type: 3}
+  - SpawnType: 1
+    Prefab: {fileID: 235000204462326856, guid: a3aa07a400225c60cba8439900e2c1ce, type: 3}
+  - SpawnType: 2
+    Prefab: {fileID: 308793801238807514, guid: ccbbfa4ad01780cd8a2332c2280244fd, type: 3}
+  - SpawnType: 3
+    Prefab: {fileID: 4674589245886587161, guid: 52fed2924c8021a2781b77d04950f813,
+      type: 3}

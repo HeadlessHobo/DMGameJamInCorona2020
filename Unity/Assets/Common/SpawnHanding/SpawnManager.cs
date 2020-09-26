@@ -4,6 +4,7 @@ using System.Linq;
 using Common.SpawnHanding;
 using Gamelogic.Extensions;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class SpawnManager : Singleton<SpawnManager>
 {
@@ -48,6 +49,12 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         GameObject spawnPrefab = GetSpawnPrefabForSpawnType(spawnType);
         return Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
+    }
+
+    public T Spawn<T>(SpawnType spawnType, Vector2 spawnPosition, object dataObj) where T : Object
+    {
+        T spawnPrefab = GetSpawnPrefabForSpawnType(spawnType).GetComponent<T>();
+        return Spawner.Spawn(spawnPrefab, spawnPosition, Vector3.zero, dataObj);
     }
 
     public GameObject GetSpawnPrefabForSpawnType(SpawnType spawnType)

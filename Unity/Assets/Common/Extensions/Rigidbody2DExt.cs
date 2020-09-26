@@ -9,7 +9,7 @@ public static class Rigidbody2DExt
         var explosionDistance = explosionDir.magnitude;
 
         // Normalize without computing magnitude again
-        if (upwardsModifier == 0)
+        if (upwardsModifier == 0 && explosionDistance > 0)
             explosionDir /= explosionDistance;
         else
         {

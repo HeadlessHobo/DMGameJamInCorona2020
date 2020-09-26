@@ -2,6 +2,9 @@ namespace Common.SpawnHanding
 {
     public enum SpawnType
     {
-        Explosion
+        TNT,
+        Explosion,
+        Player,
+        Dane
     }
 }

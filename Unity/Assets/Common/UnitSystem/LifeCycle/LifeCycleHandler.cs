@@ -1,20 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Common.UnitSystem.LifeCycle
 {
-    public class LifeCycleHandler : IUpdate, IFixedUpdate, IOnDestroy
+    public class LifeCycleHandler : IUpdate, IFixedUpdate, IOnDestroy, IOnDrawGizmos
     {
         private List<IUpdate> _updateObjects;
         private List<IFixedUpdate> _fixedUpdateObjects;
         private List<IOnDestroy> _onDestroyObjects;
+        private List<IOnDrawGizmos> _gizmosObjects;
 
         public LifeCycleHandler()
         {
             _updateObjects = new List<IUpdate>();
             _fixedUpdateObjects = new List<IFixedUpdate>();
             _onDestroyObjects = new List<IOnDestroy>();
+            _gizmosObjects = new List<IOnDrawGizmos>();
         }
         
         public void AddLifeCycleObjects(object[] objs)
@@ -30,6 +33,7 @@ namespace Common.UnitSystem.LifeCycle
             AddToListIfObjInheritsFromType(obj, typeof(IUpdate), _updateObjects);
             AddToListIfObjInheritsFromType(obj, typeof(IFixedUpdate), _fixedUpdateObjects);
             AddToListIfObjInheritsFromType(obj, typeof(IOnDestroy), _onDestroyObjects);
+            AddToListIfObjInheritsFromType(obj, typeof(IOnDrawGizmos), _gizmosObjects);
         }
 
         private void AddToListIfObjInheritsFromType(object obj, Type type, IList list)
@@ -56,6 +60,14 @@ namespace Common.UnitSystem.LifeCycle
             foreach (var fixedUpdateObject in _fixedUpdateObjects)
             {
                 fixedUpdateObject.FixedUpdate();
+            }
+        }
+        
+        public void OnDrawGizmos()
+        {
+            foreach (var gizmosObject in _gizmosObjects)
+            {
+                gizmosObject.OnDrawGizmos();
             }
         }
 

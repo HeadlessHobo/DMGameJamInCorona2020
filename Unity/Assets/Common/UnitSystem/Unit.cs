@@ -7,11 +7,11 @@ using Object = UnityEngine.Object;
 
 namespace Common.UnitSystem
 {
+    [ExecuteInEditMode]
     public abstract class Unit : MonoBehaviour, IUnit
     {
         private LifeCycleHandler _lifeCycleHandler;
-        private List<object> _setups;
-        
+
         public abstract UnitType UnitType { get; }
         protected abstract IUnitStatsManager StatsManager { get; }
         
@@ -26,7 +26,7 @@ namespace Common.UnitSystem
         
         public T GetSetup<T>()
         {
-            foreach (var setup in _setups)
+            foreach (var setup in Setups)
             {
                 if (setup.GetType() == typeof(T))
                 {
@@ -73,31 +73,50 @@ namespace Common.UnitSystem
         {
             _lifeCycleHandler.AddLifeCycleObjects(objs);
         }
-        
-        protected void AddSetups(params object[] setups)
-        {
-            _setups.AddRange(setups);
-        }
-        
+
         protected virtual void Awake()
         {
             _lifeCycleHandler = new LifeCycleHandler();
         }
 
-        private void Update()
+        protected virtual void Update()
         {
-            _lifeCycleHandler.Update();
+            if (!Application.isPlaying)
+            {
+                EditorUpdate();
+            }
+            else
+            {
+                _lifeCycleHandler.Update();
+            }
+            
+        }
+
+        protected virtual void EditorUpdate()
+        {
+            
         }
         
-        private void FixedUpdate()
+        protected virtual void FixedUpdate()
         {
-            _lifeCycleHandler.FixedUpdate();
+            if (Application.isPlaying)
+            {
+                _lifeCycleHandler?.FixedUpdate();
+            }
+            
         }
         
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
-            _lifeCycleHandler.OnDestroy();
+            if (Application.isPlaying)
+            {
+                _lifeCycleHandler?.OnDestroy();
+            }
         }
-        
+
+        protected virtual void OnDrawGizmos()
+        {
+            _lifeCycleHandler?.OnDrawGizmos();
+        }
     }
 }

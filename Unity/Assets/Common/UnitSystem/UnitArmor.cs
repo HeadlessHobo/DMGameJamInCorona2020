@@ -43,6 +43,7 @@ namespace Common.UnitSystem
             _life = new Life(ownerUnit, _unitHealthStats);
             _life.Died += OnDied;
             _life.TookDamage += (damage, unitDealingDamage) => TookDamage?.Invoke(damage, unitDealingDamage);
+            _destroyRequirements = new List<Func<bool>>();
         }
 
         public void SetDeathRequirements(params Func<bool>[] destroyRequirements)

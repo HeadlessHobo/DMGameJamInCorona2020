@@ -1,0 +1,440 @@
+fileFormatVersion: 2
+guid: f068c1ef929f5044faa1bea37f6d077c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7519753400087680208
+    second: Thumb
+  - first:
+      213: -4328662396056435738
+    second: QueenHead
+  - first:
+      213: -8479850652928027842
+    second: Queen_2
+  - first:
+      213: 6030540156099359548
+    second: Dynamite
+  - first:
+      213: -5626824862824439370
+    second: QueenBody
+  - first:
+      213: -91250480086313196
+    second: Smoke
+  - first:
+      213: 206349070150016783
+    second: LeftArm
+  - first:
+      213: -7070560449774704584
+    second: RightArm
+  - first:
+      213: -8051255738146084712
+    second: Spark1
+  - first:
+      213: 8890664061919020513
+    second: Spark2
+  - first:
+      213: -6950231374180163460
+    second: Spark3
+  - first:
+      213: -3897219291858272796
+    second: Spark4
+  - first:
+      213: -3597324695804402538
+    second: Spark5
+  - first:
+      213: 504544936569894905
+    second: Head2
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Thumb
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 606
+        width: 37
+        height: 28
+      alignment: 9
+      pivot: {x: 0.78577465, y: 0.3855678}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d413c240e78b5860800000000000000
+      internalID: 7519753400087680208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QueenHead
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 444
+        width: 326
+        height: 391
+      alignment: 9
+      pivot: {x: 0.62488943, y: 0.21364865}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e3077a2c708de3c0800000000000000
+      internalID: -4328662396056435738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Queen_2
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 430
+        width: 1002
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e335cd362c4815a80800000000000000
+      internalID: -8479850652928027842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dynamite
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 333
+        width: 172
+        height: 212
+      alignment: 9
+      pivot: {x: 0.66222167, y: 0.24689656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33f7002258c0b350800000000000000
+      internalID: 6030540156099359548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: QueenBody
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 30
+        width: 374
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b16306799089e1b0800000000000000
+      internalID: -5626824862824439370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Smoke
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 356
+        width: 124
+        height: 46
+      alignment: 9
+      pivot: {x: 0.087446645, y: 0.11914394}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4171fdcfb20dbbef0800000000000000
+      internalID: -91250480086313196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LeftArm
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 124
+        width: 163
+        height: 130
+      alignment: 9
+      pivot: {x: 0.85905707, y: 0.18681593}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0f1602d2691dd200800000000000000
+      internalID: 206349070150016783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RightArm
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 124
+        width: 127
+        height: 118
+      alignment: 9
+      pivot: {x: 0.18943535, y: 0.23044276}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838a04c7bb250ed90800000000000000
+      internalID: -7070560449774704584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spark1
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 869
+        width: 185
+        height: 187
+      alignment: 9
+      pivot: {x: 0.4430676, y: 0.4758614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8982af34091344090800000000000000
+      internalID: -8051255738146084712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spark2
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 931
+        width: 99
+        height: 98
+      alignment: 9
+      pivot: {x: 0.42400816, y: 0.48464715}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5c30c0cdbf16b70800000000000000
+      internalID: 8890664061919020513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spark3
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 865
+        width: 212
+        height: 221
+      alignment: 9
+      pivot: {x: 0.39353958, y: 0.33659977}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c70673b9361db8f90800000000000000
+      internalID: -6950231374180163460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spark4
+      rect:
+        serializedVersion: 2
+        x: 695
+        y: 817
+        width: 202
+        height: 249
+      alignment: 9
+      pivot: {x: 0.45530775, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4edfcf0d3bb4ae9c0800000000000000
+      internalID: -3897219291858272796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Spark5
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 847
+        width: 201
+        height: 191
+      alignment: 9
+      pivot: {x: 0.49251422, y: 0.44485617}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694a6d4af3cb31ec0800000000000000
+      internalID: -3597324695804402538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head2
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 77
+        width: 324
+        height: 389
+      alignment: 9
+      pivot: {x: 0.6089911, y: 0.21728732}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f7787552f0800700800000000000000
+      internalID: 504544936569894905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

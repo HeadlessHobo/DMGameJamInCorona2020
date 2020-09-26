@@ -24,7 +24,7 @@ MonoBehaviour:
       _minAllowedStatValue: 0
       _maxAllowedStatValue: 0
     ExplosionLiveTime:
-      _startStat: 0.5
+      _startStat: 0.8
       _usesMinMax: 0
       _minAllowedStatValue: 0
       _maxAllowedStatValue: 0

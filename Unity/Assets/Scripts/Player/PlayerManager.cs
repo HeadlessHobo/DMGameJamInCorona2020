@@ -5,6 +5,7 @@ using Common.UnitSystem;
 using Common.UnitSystem.ExamplePlayer.Stats;
 using Common.UnitSystem.Stats;
 using Player;
+using Plugins.Timer.Source;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -63,6 +64,9 @@ public class PlayerManager : MovingUnit
         if (inputValue.isPressed)
         {
             SpawnManager.Instance.Spawn(SpawnType.TNT, _unitMovementSetup.MovementTransform.position);
+            AnimationManager.Instance.QUIThrowDynAni();
+            _movement.CanMove = false;
+            Timer.Register(_statsManager.ThrowingTNTStopTime.Value, () => _movement.CanMove = true);
         }
     }
 

@@ -16,32 +16,37 @@ MonoBehaviour:
     _healthStat:
       _startStat: 1
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
     _invulnerabilityDuration:
       _startStat: 0
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
   _movementStats:
     _speed:
       _startStat: 25
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
     _maxSpeed:
       _startStat: 50
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
   _playerAttractedManagerData:
     AttractedTriggerRadius:
       _startStat: 3.2
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
     CheerTriggerRadius:
       _startStat: 1.58
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
+  _throwingTNTStopTime:
+    _startStat: 1
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0

@@ -11,12 +11,19 @@ public class SpawnManager : Singleton<SpawnManager>
     [SerializeField]
     private SpawnTypeToPrefabMapping spawnTypeToPrefabMapping;
 
-    private List<SpawnPoint> _spawnPoints;
-
-    private void Awake()
+    private List<SpawnPoint> _spawnPoints
     {
-        _spawnPoints = FindObjectsOfType<SpawnPoint>().ToList();
+        get
+        {
+            if (_spawnPointsSource == null)
+            {
+                _spawnPointsSource = FindObjectsOfType<SpawnPoint>().ToList();
+            }
+
+            return _spawnPointsSource;
+        }
     }
+    private List<SpawnPoint> _spawnPointsSource;
 
     public void Spawn<T>(SpawnType spawnType, Action<T> onSpawned = null) where T : MonoBehaviour
     {

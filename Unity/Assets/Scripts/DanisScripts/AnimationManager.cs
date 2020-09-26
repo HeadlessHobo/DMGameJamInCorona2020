@@ -1,22 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Gamelogic.Extensions;
 using UnityEngine;
 
-public class AnimationManager : MonoBehaviour
+public class AnimationManager : Singleton<AnimationManager>
 {
-
-    public Animator ExplosionAnimator;
 
     public Animator QueenUIAnimator;
 
     void Start()
     {
         QUIIdleAni();
-    }
-
-    public void ExplosionAni()
-    {
-        ExplosionAnimator.Play("Explosion");
     }
 
     ////////////////--- Explosion animations --- ////////////////
@@ -29,7 +23,7 @@ public class AnimationManager : MonoBehaviour
 
     ////////////////--- Queen UI animations --- ////////////////
 
-    //When the qeen is hit by an explosion
+    //When the queen is hit by an explosion
     public void QUIBlownAwayAni()
     {
         QueenUIAnimator.Play("BlownAway");

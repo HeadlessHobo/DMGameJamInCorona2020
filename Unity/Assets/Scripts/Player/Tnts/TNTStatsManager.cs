@@ -4,13 +4,16 @@ using Common.UnitSystem;
 using Common.UnitSystem.Stats;
 using UnityEngine;
 
-[Serializable]
-public class TNTStatsManager : UnitStatsManager
+namespace Player.Tnts
 {
-    [SerializeField]
-    private TNT.Data _explosionData;
+    [Serializable]
+    public class TNTStatsManager : UnitStatsManager
+    {
+        [SerializeField]
+        private TNT.Data _tntData;
 
-    public TNT.Data ExplosionData => _explosionData;
-    
-    protected override List<object> StatsEntries => new List<object> { _explosionData };
+        public TNT.Data TntData => _tntData;
+        
+        protected override List<object> StatsEntries => new List<object>() { _tntData };
+    }
 }

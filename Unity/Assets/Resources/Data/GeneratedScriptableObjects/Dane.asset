@@ -25,12 +25,22 @@ MonoBehaviour:
       maxAllowedStatValue: 0
   _movementStats:
     _speed:
-      _startStat: 2
+      _startStat: 15
       _usesMinMax: 0
       minAllowedStatValue: 0
       maxAllowedStatValue: 0
     _maxSpeed:
-      _startStat: 5
+      _startStat: 30
       _usesMinMax: 0
       minAllowedStatValue: 0
       maxAllowedStatValue: 0
+  _scaredTriggerRadius:
+    _startStat: 2
+    _usesMinMax: 0
+    minAllowedStatValue: 0
+    maxAllowedStatValue: 0
+  _scaredRunTime:
+    _startStat: 2
+    _usesMinMax: 0
+    minAllowedStatValue: 0
+    maxAllowedStatValue: 0

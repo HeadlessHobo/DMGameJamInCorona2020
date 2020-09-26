@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 308793799217475410}
   - component: {fileID: 308793799217475421}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CheerTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 308793799518751767}
   - component: {fileID: 308793799518751766}
   - component: {fileID: 308793799518751761}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Movement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 308793800795069334}
   - component: {fileID: 308793800795069329}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AttractedTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

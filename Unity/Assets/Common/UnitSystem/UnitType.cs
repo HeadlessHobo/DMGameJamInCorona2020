@@ -4,6 +4,8 @@ namespace Common.UnitSystem
     {
         Player,
         Enemy,
-        All
+        All,
+        Explosion,
+        TNT
     }
 }

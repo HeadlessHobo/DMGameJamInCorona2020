@@ -2,55 +2,48 @@ using System;
 using System.Collections.Generic;
 using Common.SpawnHanding;
 using Common.UnitSystem;
+using Common.UnitSystem.Stats;
 using Common.Util;
+using Player.Tnts;
 using Plugins.LeanTween.Framework;
 using Plugins.Timer.Source;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 [ExecuteInEditMode]
-public class TNT : MonoBehaviour
+public class TNT : Unit
 {
-    [FormerlySerializedAs("_explosionStatsManager"), SerializeField]
-    private TNTStatsManager tntStatsManager;
+    [SerializeField] 
+    private TNTStatsManager _statsManager;
 
     [SerializeField] 
-    private CircleCollider2D _circleCollider2D;
+    private UnitSetup _unitSetup;
 
-    private bool _hasExploded;
-    private TNT.Data _tntData;
+    public override UnitType UnitType => UnitType.TNT;
+    protected override IUnitStatsManager StatsManager => _statsManager;
+    protected override IArmor Armor { get; set; }
+    protected override List<object> Setups => new List<object>() { _unitSetup };
 
-    private void Awake()
+    private void Start()
     {
         if (Application.isPlaying)
         {
-            _tntData = tntStatsManager.ExplosionData;
-            Timer.Register(_tntData.ExplosionTimer.Value, SpawnExplosion);
+            _statsManager = Instantiate(_statsManager);
+            Armor = new UnitArmor(this, HealthFlag.Destructable, _unitSetup, new UnitHealthStats(new Stat(1), new Stat(0)));
+            Timer.Register(_statsManager.TntData.ExplosionTimer.Value, SpawnExplosion);
+            AddLifeCycleObjects(Armor);
         }
     }
 
     private void SpawnExplosion()
     {
-        SpawnManager.Instance.Spawn<Explosion>(SpawnType.Explosion, transform.position, _tntData);
-        Destroy(gameObject);
+        SpawnManager.Instance.Spawn(SpawnType.Explosion, transform.position);
+        Armor.Die();
     }
-
-    private void Update()
-    {
-        if (Application.isEditor && !Application.isPlaying && tntStatsManager != null)
-        {
-            _circleCollider2D.radius = tntStatsManager.ExplosionData.ExplosionRadius.Value;
-        }
-    }
-
-
+    
     [Serializable]
     public class Data
     {
-        public Stat ExplosionForce;
-        public Stat ExplosionRadius;
         public Stat ExplosionTimer;
-        public Stat ExplosionLiveTime;
-        public Stat ExplosionExpandTime;
     }
 }

@@ -16,7 +16,7 @@ public class HumanAniScript : MonoBehaviour
     {
         if(isQueen == false)
         {
-            rndNum = Random.Range(0, 5);
+            rndNum = Random.Range(0, 4);
            This.GetComponent<SpriteRenderer>().sprite = HumanSprites[rndNum];
         }
         else

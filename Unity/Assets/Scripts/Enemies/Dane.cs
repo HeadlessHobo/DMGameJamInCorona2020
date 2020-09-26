@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Common;
 using Common.Movement;
 using Common.UnitSystem;
 using Common.UnitSystem.ExamplePlayer.Stats;
@@ -40,18 +41,38 @@ namespace Enemies
         protected override List<object> Setups => new List<object>() { _unitSetup, _unitGraphicSetup, _unitMovementSetup };
         protected override UnitSlowManager SlowManager { get; set; }
 
+        protected override void Awake()
+        {
+            base.Awake();
+            if (Application.isPlaying)
+            {
+                _daneStatsManager = Instantiate(_daneStatsManager);
+                Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _unitSetup,
+                    _daneStatsManager.HealthStats);
+            }
+        }
+
         protected void Start()
         {
             if (Application.isPlaying)
             {
-                _daneStatsManager = Instantiate(_daneStatsManager);
                 SlowManager = new UnitSlowManager(GetStatsManager<DaneStatsManager>().MovementStats);
-                Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _unitSetup, _daneStatsManager.HealthStats);
                 _enemiesMovement = new EnemiesMovement(_daneStatsManager.GetStats<MovementStats>(), _unitMovementSetup, MovementType.Rigidbody);
-                SetupScaredTrigger();
-                SetupScaredTriggerNotifier();
+                Destroy(_scaredTriggerGo);
                 AddLifeCycleObjects(Armor, _enemiesMovement);
                 _hasInitialized = true;
+                GameManager.Instance.DaneDied += OnDaneDied;
+            }
+        }
+
+        private void OnDaneDied(Dane daneDied)
+        {
+            Transform daneDiedTransform = daneDied.GetSetup<UnitMovementSetup>().MovementTransform;
+            
+            if (daneDiedTransform != null && _unitMovementSetup.MovementTransform != null && Vector2.Distance(daneDied.GetSetup<UnitMovementSetup>().MovementTransform.position,
+                _unitMovementSetup.MovementTransform.position) < _daneStatsManager.ScaredTriggerRadius.Value)
+            {
+                SetNewState(DaneState.Scared);
             }
         }
 
@@ -59,18 +80,6 @@ namespace Enemies
         {
             CircleCollider2D circleCollider2D = _scaredTriggerGo.GetComponentInChildren<CircleCollider2D>();
             circleCollider2D.radius = _daneStatsManager.ScaredTriggerRadius.Value;
-        }
-        
-        private void SetupScaredTriggerNotifier()
-        {
-            TriggerNotifier triggerNotifier = _scaredTriggerGo.AddComponent<TriggerNotifier>();
-            triggerNotifier.Init(new List<UnitType>() {UnitType.Explosion});
-            triggerNotifier.UnitEntered += OnExplosionEntered;
-        }
-
-        private void OnExplosionEntered(UnitType unitType, IUnit unit)
-        {
-            SetNewState(DaneState.Scared);
         }
 
         public void SetNewState(DaneState newState)

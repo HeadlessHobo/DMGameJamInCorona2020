@@ -24,8 +24,8 @@ namespace Editor.GameSettingsWindow.Stats
             _statFoldout.Add(minMaxPropertyField);
             if (showMinMaxProperty.boolValue)
             {
-                _statFoldout.Add(new PropertyField(property.FindPropertyRelative("_minStatValue")));
-                _statFoldout.Add(new PropertyField(property.FindPropertyRelative("_maxStatValue")));
+                _statFoldout.Add(new PropertyField(property.FindPropertyRelative("_minAllowedStatValue")));
+                _statFoldout.Add(new PropertyField(property.FindPropertyRelative("_maxAllowedStatValue")));
             }
 
             return _statFoldout;

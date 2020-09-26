@@ -14,3 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstLoadedScreen:
     _pickedValue: GameScene
+  minDanesForGroup:
+    _startStat: 4
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0
+  maxTimeForGroupToDie:
+    _startStat: 1
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0
+  _coronaHealth:
+    _startStat: 100
+    _usesMinMax: 1
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 100
+  _coronaToLosePerGroupDeath:
+    _startStat: 10
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0

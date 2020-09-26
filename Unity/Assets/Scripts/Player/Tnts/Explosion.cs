@@ -49,6 +49,7 @@ public class Explosion : Unit
             
             _animationManager.ExplosionAni();
             Timer.Register(_explosionData.ExplosionAnimationWaitTime.Value, OnExplosionStarted);
+            Timer.Register(_explosionData.ExplosionAnimationWaitTime.Value + _explosionData.ExplosionDamageAndPushTime.Value, OnExplosionEnded);
             Timer.Register(_explosionData.ExplosionLiveTime.Value, Armor.Die);
         }
     }
@@ -56,6 +57,11 @@ public class Explosion : Unit
     private void OnExplosionStarted()
     {
         _circleCollider2D.enabled = true;
+    }
+
+    private void OnExplosionEnded()
+    {
+        _circleCollider2D.enabled = false;
     }
     
     private void OnUnitEntered(UnitType unitType, IUnit unit)
@@ -91,6 +97,7 @@ public class Explosion : Unit
         public Stat ExplosionForce;
         public Stat ExplosionRadius;
         public Stat ExplosionLiveTime;
+        public Stat ExplosionDamageAndPushTime;
         public Stat ExplosionAnimationWaitTime;
     }
 }

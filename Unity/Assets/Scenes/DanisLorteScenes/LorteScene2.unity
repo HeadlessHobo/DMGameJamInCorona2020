@@ -834,6 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionAnimator: {fileID: 0}
+  QueenUIAnimator: {fileID: 123679533}
 --- !u!4 &1258771994
 Transform:
   m_ObjectHideFlags: 0

@@ -138,8 +138,8 @@ namespace Enemies
 
         private void OnStoppedRunningAway()
         {
-            SetNewState(DaneState.Standing);
             _isRunningAway = false;
+            SetNewState(DaneState.Standing);
         }
 
         protected override void OnDestroy()

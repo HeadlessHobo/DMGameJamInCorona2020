@@ -41,6 +41,7 @@ namespace Common
             _gameSettings = ScriptableObjectUtils.Load<GameSettings>(GAME_SETTINGS_SCRIPTABLE_OBJECT_NAME);
             _gameSettings = Instantiate(_gameSettings);
 
+            
             HandleSpawning();
             ScreenManager.Instance.ScreenLoaded += OnScreenLoaded;
         }
@@ -78,7 +79,15 @@ namespace Common
         
         private void CheckIfAGroupOfDanesHasDied(Dane newDaneDied)
         {
-            _latestCoronaDaneDeaths.Add(Time.realtimeSinceStartup, newDaneDied);
+            if (_latestCoronaDaneDeaths.ContainsKey(Time.realtimeSinceStartup))
+            {
+                _latestCoronaDaneDeaths.Add(Time.realtimeSinceStartup + 0.001f, newDaneDied);
+            }
+            else
+            {
+                _latestCoronaDaneDeaths.Add(Time.realtimeSinceStartup, newDaneDied);
+            }
+
             UpdateLatestDaneDeaths();
             if (_latestCoronaDaneDeaths.Count >= _gameSettings.MinDanesForGroup.Value && !_isOnGroupDeathTimeout)
             {
@@ -90,7 +99,6 @@ namespace Common
                 _aGroupOfDanesHasDied = true;
                 Timer.Cancel(_groupOfDanesDiedCheckTimer);
                 Timer.Register(_gameSettings.GroupDeathTimeout.Value, () => _isOnGroupDeathTimeout = false);
-                Debug.Log("Killed enough for Corona to activate");
             }
             else if(!_isOnGroupDeathTimeout)
             {

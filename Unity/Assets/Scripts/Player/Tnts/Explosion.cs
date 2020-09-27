@@ -16,7 +16,7 @@ public class Explosion : Unit
     private ExplosionStatsManager _explosionStatsManager;
 
     [SerializeField] 
-    private AnimationManager _animationManager;
+    private Animator _explosionAnimator;
     
     [SerializeField]
     private CircleCollider2D _circleCollider2D;
@@ -46,8 +46,8 @@ public class Explosion : Unit
             
             Armor = new UnitArmor(this, HealthFlag.Destructable, _unitSetup, new UnitHealthStats(new Stat(1), new Stat(0)));
             AddLifeCycleObjects(Armor);
-            
-            _animationManager.ExplosionAni();
+
+            _explosionAnimator.Play("Explosion");
             Timer.Register(_explosionData.ExplosionAnimationWaitTime.Value, OnExplosionStarted);
             Timer.Register(_explosionData.ExplosionAnimationWaitTime.Value + _explosionData.ExplosionDamageAndPushTime.Value, OnExplosionEnded);
             Timer.Register(_explosionData.ExplosionLiveTime.Value, Armor.Die);
@@ -75,6 +75,7 @@ public class Explosion : Unit
         {
             unit.GetSetup<UnitMovementSetup>().Rigidbody2D.
                 AddExplosionForce(_explosionData.ExplosionForce.Value, transform.position, _explosionData.ExplosionRadius.Value);
+            AnimationManager.Instance.QUIBlownAwayAni();
         }
         else if (unitType == UnitType.Enemy)
         {

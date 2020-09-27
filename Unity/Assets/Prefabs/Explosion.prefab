@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 381402594}
-  - component: {fileID: 381402595}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -32,19 +31,6 @@ Transform:
   m_Father: {fileID: 235000204462326854}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &381402595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 381402593}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f63dc2b76b50d94793773e95d9b8fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ExplosionAnimator: {fileID: 1970308082}
 --- !u!1 &779296677
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _explosionStatsManager: {fileID: 11400000, guid: e451a15a01e3fea24b73af261bf12b39,
     type: 2}
-  _animationManager: {fileID: 381402595}
+  _explosionAnimator: {fileID: 1970308082}
   _circleCollider2D: {fileID: 971133215561793404}
   _unitSetup:
     _rootGo: {fileID: 235000204462326856}

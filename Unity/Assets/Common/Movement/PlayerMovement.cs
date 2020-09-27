@@ -10,7 +10,6 @@ namespace Common.Movement
         private const float CHANCE_FOR_SMOKING = 30f;
         
         private Vector2 _moveDirection;
-        private bool _didMoveLastFrame;
         private HumanAniScript _humanAniScript;
         
         public bool CanMove { get; set; }
@@ -26,19 +25,23 @@ namespace Common.Movement
         {
             if (CanMove)
             {
-                _moveDirection = amountMoved;
-                UpdateAnimations();
+                _moveDirection = amountMoved; ;
             }
+        }
+
+        public override void FixedUpdate()
+        {
+            base.FixedUpdate();
+            UpdateAnimations();
         }
 
         private void UpdateAnimations()
         {
             if (_moveDirection.magnitude <= 0)
             {
-                if (_didMoveLastFrame)
+                if (!_humanAniScript.HasIdleAnimation)
                 {
                     _humanAniScript.HumanIdleAni();
-                    _didMoveLastFrame = false;
                 }
 
                 if (!AnimationManager.Instance.HasIdleAnimation)
@@ -62,10 +65,9 @@ namespace Common.Movement
                     AnimationManager.Instance.QUIMoveAni();
                 }
                 
-                if (!_didMoveLastFrame)
+                if (!_humanAniScript.HasMovementAnimation)
                 {
                     _humanAniScript.HumanMove();
-                    _didMoveLastFrame = true;
                 }
             }
         }

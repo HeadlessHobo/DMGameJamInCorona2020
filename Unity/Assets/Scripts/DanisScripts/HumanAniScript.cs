@@ -29,11 +29,20 @@ public class HumanAniScript : MonoBehaviour
         HumanIdleAni();
         
     }
-
-    // Update is called once per frame
-    void Update()
+    public bool HasMovementAnimation
     {
-        
+        get
+        {
+            return HumanAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.HumanMove");
+        }
+    }
+    
+    public bool HasIdleAnimation
+    {
+        get
+        {
+            return HumanAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.HumanIdle");
+        }
     }
 
 

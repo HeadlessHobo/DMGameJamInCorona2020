@@ -26,7 +26,7 @@ namespace Common.Movement
             _movementType = movementType;
         }
         
-        public void FixedUpdate()
+        public virtual void FixedUpdate()
         {
             SetMoveDirection();
             Move();

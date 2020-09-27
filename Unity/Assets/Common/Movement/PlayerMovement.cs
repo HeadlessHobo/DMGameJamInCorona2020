@@ -33,28 +33,40 @@ namespace Common.Movement
 
         private void UpdateAnimations()
         {
-            if (_moveDirection.magnitude <= 0 && _didMoveLastFrame)
+            if (_moveDirection.magnitude <= 0)
             {
-                float randomProcent = Random.Range(0, 100);
-                if (randomProcent <= CHANCE_FOR_SMOKING)
+                if (_didMoveLastFrame)
                 {
-                    AnimationManager.Instance.QUISmokeIdleAni();
+                    _humanAniScript.HumanIdleAni();
+                    _didMoveLastFrame = false;
                 }
-                else
+
+                if (!AnimationManager.Instance.HasIdleAnimation)
                 {
-                    AnimationManager.Instance.QUIIdleAni();
+                    float randomProcent = Random.Range(0, 100);
+                    if (randomProcent <= CHANCE_FOR_SMOKING)
+                    {
+                        AnimationManager.Instance.QUISmokeIdleAni();
+                    }
+                    else
+                    {
+                        AnimationManager.Instance.QUIIdleAni();
+                    }
+                }
+            }
+            Debug.Log("UpdateAnimations");
+            if (_moveDirection.magnitude > 0)
+            {
+                if (!AnimationManager.Instance.HasMovementAnimation)
+                {
+                    AnimationManager.Instance.QUIMoveAni();
                 }
                 
-                _humanAniScript.HumanIdleAni();
-
-                _didMoveLastFrame = false;
-            }
-            
-            if (_moveDirection.magnitude > 0 && !_didMoveLastFrame)
-            {
-                _humanAniScript.HumanMove();
-                AnimationManager.Instance.QUIMoveAni();
-                _didMoveLastFrame = true;
+                if (!_didMoveLastFrame)
+                {
+                    _humanAniScript.HumanMove();
+                    _didMoveLastFrame = true;
+                }
             }
         }
 

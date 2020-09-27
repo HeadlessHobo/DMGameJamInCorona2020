@@ -23,3 +23,6 @@ MonoBehaviour:
   - SpawnType: 3
     Prefab: {fileID: 4674589245886587161, guid: 52fed2924c8021a2781b77d04950f813,
       type: 3}
+  - SpawnType: 4
+    Prefab: {fileID: 4424057237439435147, guid: 3d2820f94e4ac0c5e9f55623770be058,
+      type: 3}

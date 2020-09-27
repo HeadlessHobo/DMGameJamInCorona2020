@@ -5,6 +5,7 @@ namespace Common.SpawnHanding
         TNT,
         Explosion,
         Player,
-        Dane
+        Dane,
+        ExplosionAfterMatch
     }
 }

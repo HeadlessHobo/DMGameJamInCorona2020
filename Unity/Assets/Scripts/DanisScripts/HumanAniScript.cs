@@ -37,6 +37,27 @@ public class HumanAniScript : MonoBehaviour
     }
 
 
+    //
+    public void HumanDeath()
+    {
+        if(rndNum == 0)
+        {
+            HumanAnimator.Play("Dane0Death");
+        }
+        else if(rndNum == 1)
+        {
+            HumanAnimator.Play("Dane1Death");
+        }
+        else if(rndNum == 2)
+        {
+            HumanAnimator.Play("Dane2Death");
+        }
+        else if (rndNum == 3)
+        {
+            HumanAnimator.Play("Dane3Death");
+        }
+    }
+
     // Play when human is Idle
     public void HumanIdleAni()
     {

@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Common.Menu
 {
-    public class ScreenManager : Singleton<ScreenManager>
+    public class  ScreenManager : Singleton<ScreenManager>
     {
         private const bool IS_RELEASE_MODE_ACTIVE = false;
         

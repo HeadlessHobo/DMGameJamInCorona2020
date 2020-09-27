@@ -26,6 +26,54 @@ TextureImporter:
   - first:
       213: 6581116930487997688
     second: Danes_7
+  - first:
+      213: 5372936994814643856
+    second: Blood
+  - first:
+      213: -8490723373419238076
+    second: Danes_0_Head
+  - first:
+      213: -7715543367939083822
+    second: Danes_0_Body
+  - first:
+      213: 7139056467049280824
+    second: Danes_0_LeftArm
+  - first:
+      213: 8422434310399035040
+    second: Danes_0_Legs
+  - first:
+      213: -7824301237591390038
+    second: Danes_1_Head
+  - first:
+      213: -4494973648467023861
+    second: Danes_1_Body
+  - first:
+      213: -2805375166231617572
+    second: Danes_1Legs
+  - first:
+      213: -7665783221549686496
+    second: Danes_2_Legs
+  - first:
+      213: -3086306221883744356
+    second: Danes_2_Head
+  - first:
+      213: 3839119858370159163
+    second: Danes_2_LeftArm
+  - first:
+      213: 7003770321054707130
+    second: Danes_2_Body
+  - first:
+      213: -1361895708114781736
+    second: Danes_2_RightArm
+  - first:
+      213: 2483097657993001260
+    second: Danes_3_Head
+  - first:
+      213: -7761091387758312516
+    second: Danes_3_Body
+  - first:
+      213: 2355104327515776037
+    second: Danes_3_Legs
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -266,7 +314,7 @@ TextureImporter:
         width: 155
         height: 291
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -274,6 +322,342 @@ TextureImporter:
       bones: []
       spriteID: 8f4db03eaf2d45b50800000000000000
       internalID: 6581116930487997688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Blood
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 484
+        width: 126
+        height: 81
+      alignment: 9
+      pivot: {x: 0.5335762, y: 0.49057597}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e4b70dab1809a40800000000000000
+      internalID: 5372936994814643856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_0_Head
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 269
+        width: 119
+        height: 122
+      alignment: 9
+      pivot: {x: 0.47661635, y: 0.43410856}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44d6d31e314ea2a80800000000000000
+      internalID: -8490723373419238076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_0_Body
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 115
+        width: 171
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d1bed08f22ece490800000000000000
+      internalID: -7715543367939083822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_0_LeftArm
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 74
+        width: 111
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8357ded4806031360800000000000000
+      internalID: 7139056467049280824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_0_Legs
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 16
+        width: 119
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a6856f916f72e470800000000000000
+      internalID: 8422434310399035040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_1_Head
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 274
+        width: 103
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa847b5ba7f7a6390800000000000000
+      internalID: -7824301237591390038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_1_Body
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 132
+        width: 140
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b08a1683845ae91c0800000000000000
+      internalID: -4494973648467023861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_1Legs
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 1
+        width: 64
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdfdf0b562e4119d0800000000000000
+      internalID: -2805375166231617572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_2_Legs
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 3
+        width: 65
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021a16a66caad9590800000000000000
+      internalID: -7665783221549686496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_2_Head
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 348
+        width: 81
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9f9a88d7dc3b25d0800000000000000
+      internalID: -3086306221883744356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_2_LeftArm
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 137
+        width: 46
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b322d40bb2b474530800000000000000
+      internalID: 3839119858370159163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_2_Body
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 166
+        width: 86
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abda3eadff3623160800000000000000
+      internalID: 7003770321054707130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_2_RightArm
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 150
+        width: 39
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d970b0b113991de0800000000000000
+      internalID: -1361895708114781736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_3_Head
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 312
+        width: 81
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29f647f92cb57220800000000000000
+      internalID: 2483097657993001260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_3_Body
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 136
+        width: 137
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3825bb0801b4490800000000000000
+      internalID: -7761091387758312516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Danes_3_Legs
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 18
+        width: 68
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524209278e20fa020800000000000000
+      internalID: 2355104327515776037
       vertices: []
       indices: 
       edges: []

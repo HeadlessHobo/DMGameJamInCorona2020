@@ -35,9 +35,9 @@ namespace Enemies
         private EnemiesMovement _enemiesMovement;
         private DaneState _currentState;
         private bool _hasInitialized;
-        private Timer _scaredTimer;
-        private Timer _colorTimer;
-
+        private Timer _scaredUICountDownTimer;
+        private bool _canDie;
+        private bool _isDead;
         public override UnitType UnitType => UnitType.Enemy;
         protected override IUnitStatsManager StatsManager => _daneStatsManager;
         protected override IArmor Armor { get; set; }
@@ -52,7 +52,17 @@ namespace Enemies
                 _daneStatsManager = Instantiate(_daneStatsManager);
                 Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _unitSetup,
                     _daneStatsManager.HealthStats);
+                Armor.AddDestroyRequirement(() => _canDie);
+                Armor.Died += OnDied;
             }
+        }
+
+        private void OnDied(IUnit killedby)
+        {
+            _humanAniScript.HumanDeath();
+            _enemiesMovement.CanMove = false;
+            _isDead = true;
+            Timer.Register(_daneStatsManager.DeathTime.Value,() => _canDie = true);
         }
 
         protected void Start()
@@ -87,7 +97,7 @@ namespace Enemies
 
         public void SetNewState(DaneState newState)
         {
-            if (_hasInitialized)
+            if (_hasInitialized && !_isDead)
             {
                 DaneState oldState = _currentState;
                 _currentState = newState;
@@ -116,7 +126,7 @@ namespace Enemies
                     break;
                 case DaneState.Scared:
                     _enemiesMovement.SetNewState(EnemyMovementState.Scared);
-                    _scaredTimer = Timer.Register(_daneStatsManager.ScaredRunTime.Value, () => SetNewState(DaneState.Standing));
+                    _scaredUICountDownTimer = Timer.Register(_daneStatsManager.ScaredRunTime.Value, () => SetNewState(DaneState.Standing));
                     _humanAniScript.HumanMove();
                     break;
                 default:
@@ -127,8 +137,7 @@ namespace Enemies
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            Timer.Cancel(_scaredTimer);
-            Timer.Cancel(_colorTimer);
+            Timer.Cancel(_scaredUICountDownTimer);
         }
 
         protected override void EditorUpdate()

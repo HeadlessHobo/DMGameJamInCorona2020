@@ -16,31 +16,36 @@ MonoBehaviour:
     _healthStat:
       _startStat: 2
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
     _invulnerabilityDuration:
       _startStat: 0
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
   _movementStats:
     _speed:
       _startStat: 15
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
     _maxSpeed:
       _startStat: 30
       _usesMinMax: 0
-      minAllowedStatValue: 0
-      maxAllowedStatValue: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
   _scaredTriggerRadius:
+    _startStat: 10
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0
+  _scaredRunTime:
+    _startStat: 4
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0
+  _deathTime:
     _startStat: 5
     _usesMinMax: 0
-    minAllowedStatValue: 0
-    maxAllowedStatValue: 0
-  _scaredRunTime:
-    _startStat: 2
-    _usesMinMax: 0
-    minAllowedStatValue: 0
-    maxAllowedStatValue: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0

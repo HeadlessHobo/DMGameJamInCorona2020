@@ -1,3 +1,5 @@
+using System;
+
 namespace Common.Menu.ScreenLoaders
 {
     public interface IScreenLoader
@@ -6,6 +8,8 @@ namespace Common.Menu.ScreenLoaders
         
         string InTransitionEffectName { get; }
         string OutTransitionEffectName { get; }
+
+        event Action<IScreenLoader> ScreenLoaded;
         
         void LoadScreen();
     }
@@ -17,6 +21,8 @@ namespace Common.Menu.ScreenLoaders
         public string ScreenName => _screenLoaderData.ScreenName;
         public string InTransitionEffectName => _screenLoaderData.InTransitionEffectName;
         public string OutTransitionEffectName => _screenLoaderData.OutTransitionEffectName;
+        
+        public event Action<IScreenLoader> ScreenLoaded;
 
         protected ScreenLoader(TScreenLoaderData loaderData)
         {
@@ -24,5 +30,10 @@ namespace Common.Menu.ScreenLoaders
         }
         
         public abstract void LoadScreen();
+
+        protected void OnScreenLoaded()
+        {
+            ScreenLoaded?.Invoke(this);
+        }
     }
 }

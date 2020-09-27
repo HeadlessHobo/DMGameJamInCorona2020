@@ -67,7 +67,10 @@ namespace Common.UnitSystem
 
         public void Die()
         {
-            _life.Die();
+            if (!IsDead)
+            {
+                _life.Die();
+            }
         }
 
         private void OnDied(IUnit killedBy)

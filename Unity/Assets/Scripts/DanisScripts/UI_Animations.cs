@@ -9,7 +9,7 @@ public class UI_Animations : MonoBehaviour
     public Animator UIAnimator;
 
     //Play when group dies.
-    void CoronaHitAni()
+    public void CoronaHitAni()
     {
         UIAnimator.Play("CoronaHit");
     }

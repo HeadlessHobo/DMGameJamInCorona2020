@@ -92,12 +92,12 @@ namespace Common
                 Timer.Register(_gameSettings.GroupDeathTimeout.Value, () => _isOnGroupDeathTimeout = false);
                 Debug.Log("Killed enough for Corona to activate");
             }
-            else
+            else if(!_isOnGroupDeathTimeout)
             {
                 _aGroupOfDanesHasDied = false;
                 _groupOfDanesDiedCheckTimer = Timer.Register(_gameSettings.MaxTimeForGroupToDie.Value, () =>
                 {
-                    if (!_aGroupOfDanesHasDied)
+                    if (!_aGroupOfDanesHasDied && !_isOnGroupDeathTimeout)
                     {
                         SoundManager.PlaySFX("Wrong");
                     }

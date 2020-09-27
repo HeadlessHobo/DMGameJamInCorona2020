@@ -39,6 +39,7 @@ namespace Enemies
         private bool _canDie;
         private bool _isDead;
         private bool _isRunningAway;
+        private static bool _canPlayNoticeSound;
         public override UnitType UnitType => UnitType.Enemy;
         protected override IUnitStatsManager StatsManager => _daneStatsManager;
         protected override IArmor Armor { get; set; }
@@ -47,9 +48,10 @@ namespace Enemies
 
         protected override void Awake()
         {
-            base.Awake();
+            base.Awake();    
             if (Application.isPlaying)
             {
+                _canPlayNoticeSound = true;
                 _daneStatsManager = Instantiate(_daneStatsManager);
                 Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _unitSetup,
                     _daneStatsManager.HealthStats);
@@ -124,6 +126,13 @@ namespace Enemies
                 case DaneState.Attracted:
                     _enemiesMovement.SetNewState(EnemyMovementState.Follow);
                     _humanAniScript.HumanMove();
+                    if (_canPlayNoticeSound)
+                    {
+                        _canPlayNoticeSound = false;
+                        SoundManager.PlaySFX("NoticeQeen");
+                        Timer.Register(_daneStatsManager.NoNoticeSoundInterval.Value, () => _canPlayNoticeSound = true);
+                    }
+                    
                     break;
                 case DaneState.Scared:
                     _enemiesMovement.SetNewState(EnemyMovementState.Scared);

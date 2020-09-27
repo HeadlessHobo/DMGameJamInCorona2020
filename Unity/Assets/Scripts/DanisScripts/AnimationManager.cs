@@ -13,6 +13,25 @@ public class AnimationManager : Singleton<AnimationManager>
         QUIIdleAni();
     }
 
+    public bool HasMovementAnimation
+    {
+        get
+        {
+            return QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.MoveAnimation");
+        }
+    }
+    
+    public bool HasIdleAnimation
+    {
+        get
+        {
+            return QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.EntryIdleAni") ||
+                   QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.StandardIdleAni") ||
+                   QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.IdleSmokeAnimation");
+        }
+    }
+    
+
     ////////////////--- Explosion animations --- ////////////////
     
     //When the queen speaks
@@ -32,9 +51,9 @@ public class AnimationManager : Singleton<AnimationManager>
     //When player moves
     public void QUIMoveAni()
     {
-        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("EntryIdleAni") ||
-            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandardIdleAni") ||
-            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleSmokeAnimation"))
+        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.EntryIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.StandardIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.IdleSmokeAnimation"))
         {
             QueenUIAnimator.Play("MoveAnimation");
         }
@@ -50,10 +69,10 @@ public class AnimationManager : Singleton<AnimationManager>
     //Randomly triggers when on idle
     public void QUISmokeIdleAni()
     {
-        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("EntryIdleAni") ||
-            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandardIdleAni") ||
-            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("MoveAnimation") ||
-            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleSmokeAnimation"))
+        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.EntryIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.StandardIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.MoveAnimation") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.IdleSmokeAnimation"))
         {
             QueenUIAnimator.Play("IdleSmokeAnimation");
         }
@@ -62,10 +81,10 @@ public class AnimationManager : Singleton<AnimationManager>
     //IdleAnimation
     public void QUIIdleAni()
     {
-        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("EntryIdleAni") ||
-            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandardIdleAni") ||
-            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("MoveAnimation") ||
-            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleSmokeAnimation"))
+        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.EntryIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.StandardIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.MoveAnimation") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.IdleSmokeAnimation"))
         {
             QueenUIAnimator.Play("StandardIdleAni");
         }

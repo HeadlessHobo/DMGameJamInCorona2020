@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Common.SpawnHanding;
 using Common.UnitSystem;
 using Common.UnitSystem.Stats;
 using Common.Util;
@@ -53,7 +54,7 @@ public class Explosion : Unit
 
     private void OnExplosionStarted()
     {
-        
+        Destroy(SpawnManager.Instance.Spawn(SpawnType.ExplosionAfterMatch, transform.position), 4);
         _collider2D.enabled = true;
     }
 

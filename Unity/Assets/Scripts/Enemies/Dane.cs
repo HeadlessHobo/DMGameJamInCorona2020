@@ -28,6 +28,9 @@ namespace Enemies
 
         [SerializeField] 
         private GameObject _scaredTriggerGo;
+
+        [SerializeField] 
+        private HumanAniScript _humanAniScript;
         
         private EnemiesMovement _enemiesMovement;
         private DaneState _currentState;
@@ -101,42 +104,23 @@ namespace Enemies
             {
                 case DaneState.Standing:
                     _enemiesMovement.SetNewState(EnemyMovementState.Stop);
-                    _unitGraphicSetup.SpriteRenderer.color = Color.blue;
+                    _humanAniScript.HumanIdleAni();
                     break;
                 case DaneState.Cheer:
                     _enemiesMovement.SetNewState(EnemyMovementState.Stop);
-                    StartColorloop(_unitGraphicSetup.SpriteRenderer, 0, 0.25f, Color.yellow, Color.red);
+                    _humanAniScript.HumanExcitedAni();
                     break;
                 case DaneState.Attracted:
                     _enemiesMovement.SetNewState(EnemyMovementState.Follow);
-                    _unitGraphicSetup.SpriteRenderer.color = Color.red;
+                    _humanAniScript.HumanMove();
                     break;
                 case DaneState.Scared:
                     _enemiesMovement.SetNewState(EnemyMovementState.Scared);
-                    _unitGraphicSetup.SpriteRenderer.color = Color.black;
                     _scaredTimer = Timer.Register(_daneStatsManager.ScaredRunTime.Value, () => SetNewState(DaneState.Standing));
+                    _humanAniScript.HumanMove();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
-            }
-        }
-
-        private void StartColorloop(SpriteRenderer spriteRenderer, int colorIndex, float interval, params Color[] colors)
-        {
-            if (colorIndex >= colors.Length)
-            {
-                colorIndex = 0;
-            }
-
-            if (spriteRenderer != null)
-            {
-                spriteRenderer.color = colors[colorIndex];
-            }
-            
-
-            if (_currentState == DaneState.Cheer)
-            {
-                _colorTimer = Timer.Register(interval, () => StartColorloop(spriteRenderer, colorIndex + 1, interval, colors));
             }
         }
 

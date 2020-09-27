@@ -28,6 +28,9 @@ public class PlayerManager : MovingUnit
     [SerializeField]
     private PlayerStatsManager _statsManager;
 
+    [SerializeField] 
+    private HumanAniScript _humanAniScript;
+
     private PlayerAttractedManager _playerAttractedManager;
 
     public override UnitType UnitType => UnitType.Player;
@@ -46,7 +49,7 @@ public class PlayerManager : MovingUnit
             _statsManager = Instantiate(_statsManager);
             SlowManager = new UnitSlowManager(GetStatsManager<PlayerStatsManager>().MovementStats);
             Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _unitSetup, _statsManager.HealthStats);
-            _movement = new PlayerMovement(_statsManager.GetStats<MovementStats>(), _unitMovementSetup, MovementType.Rigidbody);
+            _movement = new PlayerMovement(_statsManager.GetStats<MovementStats>(), _unitMovementSetup, MovementType.Rigidbody, _humanAniScript);
         
             _playerAttractedManager = new PlayerAttractedManager(_statsManager.PlayerAttractedManagerData, 
                 _playerSetup.AttractedFollowTriggerGo, _playerSetup.AttractedCheerTriggerGo);
@@ -65,6 +68,7 @@ public class PlayerManager : MovingUnit
         {
             SpawnManager.Instance.Spawn(SpawnType.TNT, _unitMovementSetup.MovementTransform.position);
             AnimationManager.Instance.QUIThrowDynAni();
+            _humanAniScript.QueenGiveDynamiteAni();
             _movement.CanMove = false;
             Timer.Register(_statsManager.ThrowingTNTStopTime.Value, () => _movement.CanMove = true);
         }

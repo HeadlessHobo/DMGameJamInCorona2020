@@ -11,12 +11,14 @@ namespace Common.Movement
         
         private Vector2 _moveDirection;
         private bool _didMoveLastFrame;
+        private HumanAniScript _humanAniScript;
         
         public bool CanMove { get; set; }
         
-        public PlayerMovement(MovementStats movementStats, UnitMovementSetup unitMovementSetup, MovementType movementType) : 
+        public PlayerMovement(MovementStats movementStats, UnitMovementSetup unitMovementSetup, MovementType movementType, HumanAniScript humanAniScript) : 
             base(movementStats, unitMovementSetup, movementType)
         {
+            _humanAniScript = humanAniScript;
             CanMove = true;
         }
 
@@ -42,12 +44,15 @@ namespace Common.Movement
                 {
                     AnimationManager.Instance.QUIIdleAni();
                 }
+                
+                _humanAniScript.HumanIdleAni();
 
                 _didMoveLastFrame = false;
             }
             
             if (_moveDirection.magnitude > 0 && !_didMoveLastFrame)
             {
+                _humanAniScript.HumanMove();
                 AnimationManager.Instance.QUIMoveAni();
                 _didMoveLastFrame = true;
             }

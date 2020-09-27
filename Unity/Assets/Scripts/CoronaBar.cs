@@ -10,6 +10,10 @@ public class CoronaBar : MonoBehaviour
     
     private void Update()
     {
+        if (GameManager.Instance.GameSettings.CoronaHealth.Value <= 0)
+        {
+            GameManager.Instance.OnWon();
+        }
         _bar.fillAmount = GameManager.Instance.GameSettings.CoronaHealth.CurrentProcent;
     }
 }

@@ -65,9 +65,12 @@ namespace Common.UnitSystem
 
         public void Die()
         {
-            Health.DecreaseTempStat(99999);
-            _wasDeadLastFrame = true;
-            Died?.Invoke(_killedByUnit);
+            if (!IsDead)
+            {
+                Health.DecreaseTempStat(99999);
+                _wasDeadLastFrame = true;
+                Died?.Invoke(_killedByUnit);
+            }
         }
     }
 }

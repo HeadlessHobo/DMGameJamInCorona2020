@@ -32,7 +32,12 @@ public class AnimationManager : Singleton<AnimationManager>
     //When player moves
     public void QUIMoveAni()
     {
+        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("EntryIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandardIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleSmokeAnimation"))
+        {
             QueenUIAnimator.Play("MoveAnimation");
+        }
     }
 
     //When player throws dynamite
@@ -45,14 +50,25 @@ public class AnimationManager : Singleton<AnimationManager>
     //Randomly triggers when on idle
     public void QUISmokeIdleAni()
     {
-
-        QueenUIAnimator.Play("IdleSmokeAnimation");
+        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("EntryIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandardIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("MoveAnimation") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleSmokeAnimation"))
+        {
+            QueenUIAnimator.Play("IdleSmokeAnimation");
+        }
     }
 
     //IdleAnimation
     public void QUIIdleAni()
     {
-        QueenUIAnimator.Play("StandardIdleAni");
+        if (QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("EntryIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("StandardIdleAni") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("MoveAnimation") ||
+            QueenUIAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleSmokeAnimation"))
+        {
+            QueenUIAnimator.Play("StandardIdleAni");
+        }
     }
 
 

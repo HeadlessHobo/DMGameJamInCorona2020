@@ -46,7 +46,17 @@ MonoBehaviour:
       _minAllowedStatValue: 0
       _maxAllowedStatValue: 0
   _throwingTNTStopTime:
+    _startStat: 0.1
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0
+  _blowingAwayActiveInTime:
     _startStat: 1
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0
+  _quoteDelay:
+    _startStat: 0.75
     _usesMinMax: 0
     _minAllowedStatValue: 0
     _maxAllowedStatValue: 0

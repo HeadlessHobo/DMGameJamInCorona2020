@@ -14,8 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _firstLoadedScreen:
     _pickedValue: MenuScene
+  _loseScreen:
+    _pickedValue: GameOverScene
+  _winScreen:
+    _pickedValue: WinScene
   minDanesForGroup:
-    _startStat: 4
+    _startStat: 3
     _usesMinMax: 0
     _minAllowedStatValue: 0
     _maxAllowedStatValue: 0
@@ -34,3 +38,19 @@ MonoBehaviour:
     _usesMinMax: 0
     _minAllowedStatValue: 0
     _maxAllowedStatValue: 0
+  _groupDeathTimeout:
+    _startStat: 0
+    _usesMinMax: 0
+    _minAllowedStatValue: 0
+    _maxAllowedStatValue: 0
+  _gameTimerData:
+    Minutes:
+      _startStat: 2
+      _usesMinMax: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0
+    Seconds:
+      _startStat: 0
+      _usesMinMax: 0
+      _minAllowedStatValue: 0
+      _maxAllowedStatValue: 0

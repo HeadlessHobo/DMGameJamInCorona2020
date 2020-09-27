@@ -11,10 +11,13 @@ namespace Enemies
     {
         private Vector2 _moveDirection;
         private EnemyMovementState _currentState;
+        
+        public bool CanMove { get; set; }
 
         public EnemiesMovement(MovementStats movementStats, UnitMovementSetup unitMovementSetup, MovementType movementType) : base(movementStats, unitMovementSetup, movementType)
         {
             _currentState = EnemyMovementState.Stop;
+            CanMove = true;
         }
 
         public void SetNewState(EnemyMovementState state)
@@ -24,6 +27,11 @@ namespace Enemies
 
         protected override Vector2 GetMoveDirection()
         {
+            if (!CanMove)
+            {
+                return Vector2.zero;
+            }
+            
             switch (_currentState)
             {
                 case EnemyMovementState.Follow:

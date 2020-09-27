@@ -71,7 +71,7 @@ public class Explosion : Unit
         {
             unit.GetSetup<UnitMovementSetup>().Rigidbody2D.
                 AddExplosionForce(_explosionData.ExplosionForce.Value, transform.position, _explosionData.ExplosionRadius.Value);
-            AnimationManager.Instance.QUIBlownAwayAni();
+            (unit as PlayerManager)?.HitByExplosion();
         }
         else if (unitType == UnitType.Enemy)
         {

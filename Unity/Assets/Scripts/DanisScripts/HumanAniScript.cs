@@ -60,7 +60,7 @@ public class HumanAniScript : MonoBehaviour
 
     // Play when human is Idle
     public void HumanIdleAni()
-    {
+    {    
         HumanAnimator.Play("HumanIdle");
     }
 

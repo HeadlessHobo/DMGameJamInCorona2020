@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Common;
 using Common.Movement;
 using Common.SpawnHanding;
 using Common.UnitSystem;
@@ -32,6 +33,8 @@ public class PlayerManager : MovingUnit
     private HumanAniScript _humanAniScript;
 
     private PlayerAttractedManager _playerAttractedManager;
+    private bool _hasBeenBlowAwayInLastSecond;
+    private AudioClip[] _allQuotes;
 
     public override UnitType UnitType => UnitType.Player;
         
@@ -47,14 +50,33 @@ public class PlayerManager : MovingUnit
         if (Application.isPlaying)
         {
             _statsManager = Instantiate(_statsManager);
+            _allQuotes = SoundManager.LoadAllFromGroup("Quotes");
             SlowManager = new UnitSlowManager(GetStatsManager<PlayerStatsManager>().MovementStats);
             Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _unitSetup, _statsManager.HealthStats);
             _movement = new PlayerMovement(_statsManager.GetStats<MovementStats>(), _unitMovementSetup, MovementType.Rigidbody, _humanAniScript);
         
             _playerAttractedManager = new PlayerAttractedManager(_statsManager.PlayerAttractedManagerData, 
                 _playerSetup.AttractedFollowTriggerGo, _playerSetup.AttractedCheerTriggerGo);
-            AddLifeCycleObjects(Armor, _movement);
+            GameManager.Instance.GroupOfDanesDied += OnGroupOfDanesDied;
+            AddLifeCycleObjects(Armor, _movement);    
         }
+    }
+
+    private void OnGroupOfDanesDied()
+    {
+        if (!_hasBeenBlowAwayInLastSecond)
+        {
+            AnimationManager.Instance.QUIQuoteAni();
+            int randomNumber = Random.Range(0, _allQuotes.Length);
+            Timer.Register(_statsManager.QuoteDelay.Value, () => SoundManager.PlaySFX(_allQuotes[randomNumber]));
+        }
+    }
+
+    public void HitByExplosion()
+    {
+        AnimationManager.Instance.QUIBlownAwayAni();
+        _hasBeenBlowAwayInLastSecond = true;
+        Timer.Register(_statsManager.BlowingAwayActiveInTime.Value, () => _hasBeenBlowAwayInLastSecond = false);
     }
 
     public void OnMove(InputValue inputValue)

@@ -121,6 +121,8 @@ namespace Common
         {
             if (_gameSettings.CoronaHealth.Value > 0)
             {
+                _gameSettings = ScriptableObjectUtils.Load<GameSettings>(GAME_SETTINGS_SCRIPTABLE_OBJECT_NAME);
+                _gameSettings = Instantiate(_gameSettings);
                 ScreenManager.Instance.LoadScreen(_gameSettings.LoseScreen.PickedValue);
             }
             else
@@ -131,6 +133,8 @@ namespace Common
 
         public void OnWon()
         {
+            _gameSettings = ScriptableObjectUtils.Load<GameSettings>(GAME_SETTINGS_SCRIPTABLE_OBJECT_NAME);
+            _gameSettings = Instantiate(_gameSettings);
             ScreenManager.Instance.LoadScreen(_gameSettings.WinScreen.PickedValue);
         }
         

@@ -733,7 +733,7 @@ MonoBehaviour:
   _explosionStatsManager: {fileID: 11400000, guid: e451a15a01e3fea24b73af261bf12b39,
     type: 2}
   _explosionAnimator: {fileID: 1970308082}
-  _circleCollider2D: {fileID: 971133215561793404}
+  _collider2D: {fileID: 879597394}
   _unitSetup:
     _rootGo: {fileID: 235000204462326856}
 --- !u!1 &6419563978989165676
@@ -745,7 +745,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2093711355965871616}
-  - component: {fileID: 3444085196279831389}
+  - component: {fileID: 7766899809644531120}
   m_Layer: 0
   m_Name: NormalTrigger
   m_TagString: Untagged
@@ -767,8 +767,8 @@ Transform:
   m_Father: {fileID: 235000204462326854}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &3444085196279831389
-CircleCollider2D:
+--- !u!60 &7766899809644531120
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -778,11 +778,39 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.89
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.21347174, y: 2.2024403}
+      - {x: 0.057396993, y: 2.126545}
+      - {x: -0.06329348, y: 2.2025857}
+      - {x: -0.15814564, y: 2.1887505}
+      - {x: -3.1663465, y: 2.0812488}
+      - {x: -5.5400167, y: 0.97897816}
+      - {x: -6.3841896, y: 0.33803076}
+      - {x: -6.4811893, y: -0.6250843}
+      - {x: -4.4676943, y: -1.9082901}
+      - {x: -2.3636913, y: -2.3892312}
+      - {x: 1.3172663, y: -2.5622773}
+      - {x: 4.599824, y: -1.7247372}
+      - {x: 6.2350516, y: -0.63930833}
+      - {x: 6.196575, y: 0.112190306}
+      - {x: 5.8998485, y: 0.5518037}
+      - {x: 4.0609493, y: 1.4917592}
+      - {x: 2.4549577, y: 1.9126251}
+      - {x: 2.2715611, y: 1.8870244}
+      - {x: 1.1725869, y: 2.1761897}
 --- !u!1 &8704770147239022104
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +820,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7906670845511851532}
-  - component: {fileID: 971133215561793404}
+  - component: {fileID: 879597394}
   m_Layer: 8
   m_Name: ExplosionTrigger
   m_TagString: Untagged
@@ -814,8 +842,8 @@ Transform:
   m_Father: {fileID: 235000204462326854}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &971133215561793404
-CircleCollider2D:
+--- !u!60 &879597394
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -825,8 +853,36 @@ CircleCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.89
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.21347174, y: 2.2024403}
+      - {x: 0.057396993, y: 2.126545}
+      - {x: -0.06329348, y: 2.2025857}
+      - {x: -0.15814564, y: 2.1887505}
+      - {x: -3.1663465, y: 2.0812488}
+      - {x: -5.5400167, y: 0.97897816}
+      - {x: -6.3841896, y: 0.33803076}
+      - {x: -6.4811893, y: -0.6250843}
+      - {x: -4.4676943, y: -1.9082901}
+      - {x: -2.3636913, y: -2.3892312}
+      - {x: 1.3172663, y: -2.5622773}
+      - {x: 4.599824, y: -1.7247372}
+      - {x: 6.2350516, y: -0.63930833}
+      - {x: 6.196575, y: 0.112190306}
+      - {x: 5.8998485, y: 0.5518037}
+      - {x: 4.0609493, y: 1.4917592}
+      - {x: 2.4549577, y: 1.9126251}
+      - {x: 2.2715611, y: 1.8870244}
+      - {x: 1.1725869, y: 2.1761897}

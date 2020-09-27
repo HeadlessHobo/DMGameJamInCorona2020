@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeTransitions:
   - _transitionEffectName: FadeEffect
-    _fadeInTime: 2
-    _fadeOutTime: 4
+    _fadeInTime: 1
+    _fadeOutTime: 1

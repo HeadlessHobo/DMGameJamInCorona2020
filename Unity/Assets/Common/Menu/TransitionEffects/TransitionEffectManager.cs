@@ -35,8 +35,14 @@ namespace Common.Menu.TransitionEffects
             }
             else
             {
+                RemoveAllTransistionEffects();
                 onTransitionFinished?.Invoke();
             }
+        }
+
+        private void RemoveAllTransistionEffects()
+        {
+            _transitionEffects.ForEach(item => item.Remove());
         }
     }
 }

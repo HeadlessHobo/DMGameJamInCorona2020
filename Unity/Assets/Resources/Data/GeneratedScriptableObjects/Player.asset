@@ -36,12 +36,12 @@ MonoBehaviour:
       _maxAllowedStatValue: 0
   _playerAttractedManagerData:
     AttractedTriggerRadius:
-      _startStat: 3.2
+      _startStat: 6
       _usesMinMax: 0
       _minAllowedStatValue: 0
       _maxAllowedStatValue: 0
     CheerTriggerRadius:
-      _startStat: 1.58
+      _startStat: 3
       _usesMinMax: 0
       _minAllowedStatValue: 0
       _maxAllowedStatValue: 0

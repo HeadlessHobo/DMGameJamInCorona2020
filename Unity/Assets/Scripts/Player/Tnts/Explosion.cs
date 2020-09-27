@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Common.SpawnHanding;
 using Common.UnitSystem;
 using Common.UnitSystem.Stats;
 using Common.Util;
-using Plugins.LeanTween.Framework;
 using Plugins.Timer.Source;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [ExecuteInEditMode]
 public class Explosion : Unit
@@ -19,7 +16,7 @@ public class Explosion : Unit
     private Animator _explosionAnimator;
     
     [SerializeField]
-    private CircleCollider2D _circleCollider2D;
+    private Collider2D _collider2D;
 
     [SerializeField] 
     private UnitSetup _unitSetup;
@@ -37,12 +34,11 @@ public class Explosion : Unit
         {
             _explosionStatsManager = Instantiate(_explosionStatsManager);
             _explosionData = _explosionStatsManager.ExplosionData;
-            TriggerNotifier triggerNotifier = _circleCollider2D.gameObject.AddComponent<TriggerNotifier>();
+            TriggerNotifier triggerNotifier = _collider2D.gameObject.AddComponent<TriggerNotifier>();
             triggerNotifier.Init(new List<UnitType>(){ UnitType.All });
             triggerNotifier.UnitStayed += OnUnitEntered;
-
-            _circleCollider2D.radius = _explosionData.ExplosionRadius.Value;
-            _circleCollider2D.enabled = false;
+            
+            _collider2D.enabled = false;
             
             Armor = new UnitArmor(this, HealthFlag.Destructable, _unitSetup, new UnitHealthStats(new Stat(1), new Stat(0)));
             AddLifeCycleObjects(Armor);
@@ -56,12 +52,12 @@ public class Explosion : Unit
 
     private void OnExplosionStarted()
     {
-        _circleCollider2D.enabled = true;
+        _collider2D.enabled = true;
     }
 
     private void OnExplosionEnded()
     {
-        _circleCollider2D.enabled = false;
+        _collider2D.enabled = false;
     }
     
     private void OnUnitEntered(UnitType unitType, IUnit unit)
@@ -80,15 +76,6 @@ public class Explosion : Unit
         else if (unitType == UnitType.Enemy)
         {
             unit.GetArmor<IArmor>().Die();
-        }
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-        if (Application.isEditor && !Application.isPlaying && _explosionStatsManager != null)
-        {
-            _circleCollider2D.radius = _explosionStatsManager.ExplosionData.ExplosionRadius.Value;
         }
     }
 

@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Common.Menu;
 using Common.SpawnHanding;
 using Common.UnitSystem;
 using Common.Util;
@@ -34,9 +35,18 @@ namespace Common
             _latestCoronaDaneDeaths = new Dictionary<float, Dane>();
             _gameSettings = ScriptableObjectUtils.Load<GameSettings>(GAME_SETTINGS_SCRIPTABLE_OBJECT_NAME);
             _gameSettings = Instantiate(_gameSettings);
-            SpawnManager.Instance.Spawn<PlayerManager>(SpawnType.Player, OnPlayerSpawned);
-            SpawnManager.Instance.SpawnAllWithType(SpawnType.Dane);
+            
+            ScreenManager.Instance.ScreenLoaded += OnScreenLoaded;
         }
+
+        private void OnScreenLoaded(string screenName)
+        {
+            if (SpawnManager.Instance != null)
+            {
+                SpawnManager.Instance.Spawn<PlayerManager>(SpawnType.Player, OnPlayerSpawned);
+            }
+        }
+
 
         private void OnPlayerSpawned(PlayerManager player)
         {

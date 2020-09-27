@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GameSettings
   m_EditorClassIdentifier: 
   _firstLoadedScreen:
-    _pickedValue: GameScene
+    _pickedValue: MenuScene
   minDanesForGroup:
     _startStat: 4
     _usesMinMax: 0

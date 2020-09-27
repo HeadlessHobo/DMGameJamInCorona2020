@@ -50,7 +50,7 @@ MonoBehaviour:
       _pickedValue: WinScene
   - _screenName: GameScene
     _inTransition:
-      _pickedValue: None
+      _pickedValue: FadeEffect
     _outTransition:
       _pickedValue: None
     _scene:

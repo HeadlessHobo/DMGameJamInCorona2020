@@ -13,14 +13,18 @@ namespace Common.Menu
 {
     public class ScreenManager : Singleton<ScreenManager>
     {
-        private List<IScreenLoader> _screenLoaders;
-        private IScreenLoader _currrentlyLoadedScreen;
+        private const bool IS_RELEASE_MODE_ACTIVE = false;
         
         [SerializeField]
         private ScreenLoadersData _screenLoadersData;
 
         [SerializeField] 
         private TransitionEffectManager _transitionEffectManager;
+        
+        private List<IScreenLoader> _screenLoaders;
+        private IScreenLoader _currrentlyLoadedScreen;
+
+        public event Action<string> ScreenLoaded;
 
         private void Awake()
         {
@@ -29,7 +33,10 @@ namespace Common.Menu
 
         private void Start()
         {
-            LoadScreen(GameManager.Instance.GameSettings.FirstLoadedScreen);
+            if (IS_RELEASE_MODE_ACTIVE || !Application.isEditor)
+            {
+                LoadScreen(GameManager.Instance.GameSettings.FirstLoadedScreen);
+            }
         }
 
         private void CreateScreenLoaders()
@@ -53,7 +60,7 @@ namespace Common.Menu
             IScreenLoader screenLoader = _screenLoaders.Find(item => item.ScreenName == screenName);
             if (_currrentlyLoadedScreen != null)
             {
-                UnloadCurrentScreen(screenLoader);
+                UnloadCurrentScreenAndLoadNewScreen(screenLoader);
             }
             else
             {
@@ -61,7 +68,7 @@ namespace Common.Menu
             }
         }
 
-        private void UnloadCurrentScreen(IScreenLoader newScreenLoader)
+        private void UnloadCurrentScreenAndLoadNewScreen(IScreenLoader newScreenLoader)
         {
             _transitionEffectManager.ApplyTransitionEffect(_currrentlyLoadedScreen.OutTransitionEffectName, TransitionType.Out,
                 () => PreviousScreenIsGone(newScreenLoader));
@@ -74,9 +81,17 @@ namespace Common.Menu
 
         private void LoadNewScreen(IScreenLoader newScreenLoader)
         {
+            newScreenLoader.ScreenLoaded += OnScreenLoaded;
             newScreenLoader.LoadScreen();
             _transitionEffectManager.ApplyTransitionEffect(newScreenLoader.InTransitionEffectName, TransitionType.In);
             _currrentlyLoadedScreen = newScreenLoader;
+            
+        }
+
+        private void OnScreenLoaded(IScreenLoader screenLoaded)
+        {
+            screenLoaded.ScreenLoaded -= OnScreenLoaded;
+            ScreenLoaded?.Invoke(screenLoaded.ScreenName);
         }
 
         public List<string> GetAllScreenNames()

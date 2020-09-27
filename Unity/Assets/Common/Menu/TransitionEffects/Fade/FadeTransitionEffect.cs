@@ -34,5 +34,10 @@ namespace Common.Menu.TransitionEffects.Fade
                     throw new ArgumentOutOfRangeException(nameof(transitionType), transitionType, null);
             }
         }
+
+        public override void Remove()
+        {
+            FadeManager.Instance.FadeTo(MIN_ALPHA, 0);
+        }
     }
 }

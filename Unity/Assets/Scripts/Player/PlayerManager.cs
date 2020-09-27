@@ -35,6 +35,7 @@ public class PlayerManager : MovingUnit
     private PlayerAttractedManager _playerAttractedManager;
     private bool _hasBeenBlowAwayInLastSecond;
     private AudioClip[] _allQuotes;
+    private bool _canUseTnt;
 
     public override UnitType UnitType => UnitType.Player;
         
@@ -54,7 +55,8 @@ public class PlayerManager : MovingUnit
             SlowManager = new UnitSlowManager(GetStatsManager<PlayerStatsManager>().MovementStats);
             Armor = new UnitArmor(this, HealthFlag.Destructable | HealthFlag.Killable, _unitSetup, _statsManager.HealthStats);
             _movement = new PlayerMovement(_statsManager.GetStats<MovementStats>(), _unitMovementSetup, MovementType.Rigidbody, _humanAniScript);
-        
+
+            _canUseTnt = true;
             _playerAttractedManager = new PlayerAttractedManager(_statsManager.PlayerAttractedManagerData, 
                 _playerSetup.AttractedFollowTriggerGo, _playerSetup.AttractedCheerTriggerGo);
             GameManager.Instance.GroupOfDanesDied += OnGroupOfDanesDied;
@@ -86,12 +88,14 @@ public class PlayerManager : MovingUnit
 
     public void OnFireTnT(InputValue inputValue)
     {
-        if (inputValue.isPressed)
+        if (inputValue.isPressed && _canUseTnt)
         {
             SpawnManager.Instance.Spawn(SpawnType.TNT, _unitMovementSetup.MovementTransform.position);
             AnimationManager.Instance.QUIThrowDynAni();
             _humanAniScript.QueenGiveDynamiteAni();
             _movement.CanMove = false;
+            _canUseTnt = false;
+            Timer.Register(_statsManager.TntCooldown.Value, () => _canUseTnt = true);
             Timer.Register(_statsManager.ThrowingTNTStopTime.Value, () => _movement.CanMove = true);
         }
     }

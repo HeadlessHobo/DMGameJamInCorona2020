@@ -38,6 +38,7 @@ namespace Enemies
         private Timer _scaredUICountDownTimer;
         private bool _canDie;
         private bool _isDead;
+        private bool _isRunningAway;
         public override UnitType UnitType => UnitType.Enemy;
         protected override IUnitStatsManager StatsManager => _daneStatsManager;
         protected override IArmor Armor { get; set; }
@@ -97,7 +98,7 @@ namespace Enemies
 
         public void SetNewState(DaneState newState)
         {
-            if (_hasInitialized && !_isDead)
+            if (_hasInitialized && !_isDead && !_isRunningAway)
             {
                 DaneState oldState = _currentState;
                 _currentState = newState;
@@ -126,12 +127,19 @@ namespace Enemies
                     break;
                 case DaneState.Scared:
                     _enemiesMovement.SetNewState(EnemyMovementState.Scared);
-                    _scaredUICountDownTimer = Timer.Register(_daneStatsManager.ScaredRunTime.Value, () => SetNewState(DaneState.Standing));
+                    _scaredUICountDownTimer = Timer.Register(_daneStatsManager.ScaredRunTime.Value, OnStoppedRunningAway);
                     _humanAniScript.HumanMove();
+                    _isRunningAway = true;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
             }
+        }
+
+        private void OnStoppedRunningAway()
+        {
+            SetNewState(DaneState.Standing);
+            _isRunningAway = false;
         }
 
         protected override void OnDestroy()

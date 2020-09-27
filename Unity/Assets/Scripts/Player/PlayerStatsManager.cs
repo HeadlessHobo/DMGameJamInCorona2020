@@ -25,6 +25,9 @@ public class PlayerStatsManager : UnitStatsManager
     [SerializeField] 
     private Stat _quoteDelay;
 
+    [SerializeField] 
+    private Stat _tntCooldown;
+
     public UnitHealthStats HealthStats => _healthStats;
 
     public MovementStats MovementStats => _movementStats;
@@ -36,6 +39,8 @@ public class PlayerStatsManager : UnitStatsManager
     public Stat BlowingAwayActiveInTime => _blowingAwayActiveInTime;
 
     public Stat QuoteDelay => _quoteDelay;
+
+    public Stat TntCooldown => _tntCooldown;
 
     protected override List<object> StatsEntries => new List<object>() { _healthStats, _movementStats };
 }

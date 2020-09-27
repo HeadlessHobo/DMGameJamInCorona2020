@@ -28,6 +28,7 @@ public class TNT : Unit
     {
         if (Application.isPlaying)
         {
+            SoundManager.PlaySFX("Fuse");
             _statsManager = Instantiate(_statsManager);
             Armor = new UnitArmor(this, HealthFlag.Destructable, _unitSetup, new UnitHealthStats(new Stat(1), new Stat(0)));
             Timer.Register(_statsManager.TntData.ExplosionTimer.Value, SpawnExplosion);

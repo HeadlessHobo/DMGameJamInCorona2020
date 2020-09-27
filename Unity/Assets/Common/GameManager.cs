@@ -22,6 +22,8 @@ namespace Common
         private GameSettings _gameSettings;
         private Dictionary<float, Dane> _latestCoronaDaneDeaths;
         private bool _isOnGroupDeathTimeout;
+        private bool _aGroupOfDanesHasDied;
+        private Timer _groupOfDanesDiedCheckTimer;
         
         public Camera MainCamera => Camera.main;
         public PlayerManager Player { get; private set; }
@@ -80,12 +82,26 @@ namespace Common
             UpdateLatestDaneDeaths();
             if (_latestCoronaDaneDeaths.Count >= _gameSettings.MinDanesForGroup.Value && !_isOnGroupDeathTimeout)
             {
+                SoundManager.PlaySFX("CoronaDead");
                 _latestCoronaDaneDeaths.Clear();
                 _gameSettings.CoronaHealth.DecreaseStat(_gameSettings.CoronaToLosePerGroupDeath.Value);
                 GroupOfDanesDied?.Invoke();
                 _isOnGroupDeathTimeout = true;
+                _aGroupOfDanesHasDied = true;
+                Timer.Cancel(_groupOfDanesDiedCheckTimer);
                 Timer.Register(_gameSettings.GroupDeathTimeout.Value, () => _isOnGroupDeathTimeout = false);
                 Debug.Log("Killed enough for Corona to activate");
+            }
+            else
+            {
+                _aGroupOfDanesHasDied = false;
+                _groupOfDanesDiedCheckTimer = Timer.Register(_gameSettings.MaxTimeForGroupToDie.Value, () =>
+                {
+                    if (!_aGroupOfDanesHasDied)
+                    {
+                        SoundManager.PlaySFX("Wrong");
+                    }
+                });
             }
         }
 

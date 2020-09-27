@@ -23,6 +23,9 @@ namespace Enemies
         [SerializeField] 
         private Stat _deathTime;
 
+        [SerializeField] 
+        private Stat _noNoticeSoundInterval;
+
         public UnitHealthStats HealthStats => _healthStats;
 
         public MovementStats MovementStats => _movementStats;
@@ -32,6 +35,8 @@ namespace Enemies
         public Stat ScaredRunTime => _scaredRunTime;
 
         public Stat DeathTime => _deathTime;
+
+        public Stat NoNoticeSoundInterval => _noNoticeSoundInterval;
 
         protected override List<object> StatsEntries => new List<object>() { _healthStats, _movementStats };
     }

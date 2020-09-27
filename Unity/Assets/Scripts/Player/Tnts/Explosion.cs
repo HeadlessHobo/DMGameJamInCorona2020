@@ -44,6 +44,7 @@ public class Explosion : Unit
             AddLifeCycleObjects(Armor);
 
             _explosionAnimator.Play("Explosion");
+            SoundManager.PlaySFX("Explosion");
             Timer.Register(_explosionData.ExplosionAnimationWaitTime.Value, OnExplosionStarted);
             Timer.Register(_explosionData.ExplosionAnimationWaitTime.Value + _explosionData.ExplosionDamageAndPushTime.Value, OnExplosionEnded);
             Timer.Register(_explosionData.ExplosionLiveTime.Value, Armor.Die);
@@ -52,6 +53,7 @@ public class Explosion : Unit
 
     private void OnExplosionStarted()
     {
+        
         _collider2D.enabled = true;
     }
 
